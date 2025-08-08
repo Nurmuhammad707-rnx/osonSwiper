@@ -1,5 +1,5 @@
 import Contact from "../Pages/Contact";
-
+import All from "../Pages/All";
 
 
 export const router =[
@@ -8,4 +8,9 @@ export const router =[
         element: <Contact/>,
         name:"Контакты"
     },
+    {
+        path:'/allProduct',
+        element: <All/>,
+        name:"Все"
+    }
 ]

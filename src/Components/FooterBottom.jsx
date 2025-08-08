@@ -14,30 +14,31 @@ function FooterBottom(){
             </div>
             <div className="all_cards">
                 <div className="bottom_FooterBottom">
-                    <div className="list_FooterBottom">
+                        <div className="icon">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="_icon" data-v-45c0c5d5=""><rect width="48" height="48" rx="24" fill="#F4F5F7"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M29.7689 20.3818H34C34 16.9846 31.9644 15 28.5156 15H19.4844C16.0356 15 14 16.9846 14 20.3385V27.6615C14 31.0154 16.0356 33 19.4844 33H28.5156C31.9644 33 34 31.0154 34 27.6615V27.3495H29.7689C27.8052 27.3495 26.2133 25.7975 26.2133 23.883C26.2133 21.9685 27.8052 20.4165 29.7689 20.4165V20.3818ZM29.7689 21.8723H33.2533C33.6657 21.8723 34 22.1982 34 22.6003V25.1309C33.9952 25.531 33.6637 25.8542 33.2533 25.8588H29.8489C28.8548 25.8719 27.9855 25.2083 27.76 24.2642C27.6471 23.6782 27.8056 23.0735 28.1931 22.6121C28.5805 22.1508 29.1574 21.88 29.7689 21.8723ZM29.92 24.5329H30.2489C30.6711 24.5329 31.0133 24.1992 31.0133 23.7875C31.0133 23.3759 30.6711 23.0422 30.2489 23.0422H29.92C29.7181 23.0399 29.5236 23.1165 29.38 23.2549C29.2364 23.3933 29.1555 23.582 29.1556 23.7789C29.1555 24.1919 29.4964 24.5281 29.92 24.5329ZM18.7378 20.3818H24.3822C24.8044 20.3818 25.1466 20.0482 25.1466 19.6365C25.1466 19.2249 24.8044 18.8912 24.3822 18.8912H18.7378C18.319 18.8912 17.9782 19.2196 17.9733 19.6279C17.9733 20.0409 18.3141 20.3771 18.7378 20.3818Z" fill="url(#paint0_linear)"></path><defs><linearGradient id="paint0_linear" x1="34.0028" y1="20.6033" x2="13.9982" y2="20.5565" gradientUnits="userSpaceOnUse"><stop stop-color="#3F74D1"></stop><stop offset="1" stop-color="#5B96E7"></stop></linearGradient></defs></svg>
+                        </div>
                         <h4 className="FooterBottom_rext">Ценовая политика: дешевле-дороже;</h4>
-                    </div>
                 </div>
                 <div className="bottom_FooterBottom">
-                    <div className="list_FooterBottom">
+                        <div className="icon">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="_icon" data-v-45c0c5d5=""><rect width="48" height="48" rx="24" fill="#F4F5F7"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M15.5 22.3178C15.5 17.7179 19.3439 14 23.9934 14C28.6561 14 32.5 17.7179 32.5 22.3178C32.5 24.6357 31.657 26.7876 30.2695 28.6116C28.7388 30.6235 26.8522 32.3765 24.7285 33.7524C24.2425 34.0704 23.8039 34.0944 23.2704 33.7524C21.1347 32.3765 19.2481 30.6235 17.7305 28.6116C16.342 26.7876 15.5 24.6357 15.5 22.3178ZM21.1942 22.5768C21.1942 24.1177 22.4517 25.3297 23.9934 25.3297C25.5362 25.3297 26.8058 24.1177 26.8058 22.5768C26.8058 21.0478 25.5362 19.7768 23.9934 19.7768C22.4517 19.7768 21.1942 21.0478 21.1942 22.5768Z" fill="url(#paint0_linear)"></path><defs><linearGradient id="paint0_linear" x1="32.5024" y1="20.2259" x2="15.4984" y2="20.1955" gradientUnits="userSpaceOnUse"><stop stop-color="#3F74D1"></stop><stop offset="1" stop-color="#5B96E7"></stop></linearGradient></defs></svg>
+                        </div>
                         <h4 className="FooterBottom_rext">Местоположение торговой точки;</h4>
-                    </div>
                 </div>
                 <div className="bottom_FooterBottom">
-                    <div className="list_FooterBottom">
+                        <div className="icon">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="_icon" data-v-45c0c5d5=""><rect width="48" height="48" rx="24" fill="#F4F5F7"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M20.9258 28.39H26.3119C26.7178 28.39 27.0545 28.05 27.0545 27.64C27.0545 27.23 26.7178 26.9 26.3119 26.9H20.9258C20.5198 26.9 20.1832 27.23 20.1832 27.64C20.1832 28.05 20.5198 28.39 20.9258 28.39ZM24.2723 21.9H20.9258C20.5198 21.9 20.1832 22.24 20.1832 22.65C20.1832 23.06 20.5198 23.39 20.9258 23.39H24.2723C24.6782 23.39 25.0149 23.06 25.0149 22.65C25.0149 22.24 24.6782 21.9 24.2723 21.9ZM31.3381 21.0256C31.5708 21.0229 31.8242 21.02 32.0545 21.02C32.302 21.02 32.5 21.22 32.5 21.47V29.51C32.5 31.99 30.5099 34 28.0545 34H20.1733C17.599 34 15.5 31.89 15.5 29.29V18.51C15.5 16.03 17.5 14 19.9653 14H25.2525C25.5099 14 25.7079 14.21 25.7079 14.46V17.68C25.7079 19.51 27.203 21.01 29.0149 21.02C29.4381 21.02 29.8112 21.0232 30.1377 21.0259C30.3917 21.0281 30.6175 21.03 30.8168 21.03C30.9578 21.03 31.1405 21.0279 31.3381 21.0256ZM31.6111 19.566C30.7972 19.569 29.8378 19.566 29.1477 19.559C28.0527 19.559 27.1507 18.648 27.1507 17.542V14.906C27.1507 14.475 27.6685 14.261 27.9646 14.572C28.5006 15.135 29.2374 15.9089 29.9706 16.6792C30.7014 17.4469 31.4288 18.211 31.9507 18.759C32.2398 19.062 32.0279 19.565 31.6111 19.566Z" fill="url(#paint0_linear)"></path><defs><linearGradient id="paint0_linear" x1="32.5024" y1="20.2259" x2="15.4984" y2="20.1955" gradientUnits="userSpaceOnUse"><stop stop-color="#3F74D1"></stop><stop offset="1" stop-color="#5B96E7"></stop></linearGradient></defs></svg>
+                        </div>
                         <h4 className="FooterBottom_rext">Сравнение цен двух аналогичных
                              препаратов у разного продавца;</h4>
-                    </div>
                 </div>
                 <div className="bottom_FooterBottom">
-                    <div className="list_FooterBottom">
+                        <div className="icon">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="_icon" data-v-45c0c5d5=""><rect width="48" height="48" rx="24" fill="#F4F5F7"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M13.9999 24C13.9999 18.48 18.4699 14 23.9999 14C29.5199 14 33.9999 18.48 33.9999 24C33.9999 29.53 29.5199 34 23.9999 34C18.4699 34 13.9999 29.53 13.9999 24ZM26.2299 25.83L27.8499 20.71C27.9599 20.36 27.6399 20.03 27.2899 20.14L22.1699 21.74C21.9599 21.81 21.7899 21.97 21.7299 22.18L20.1299 27.31C20.0199 27.65 20.3499 27.98 20.6899 27.87L25.7899 26.27C25.9999 26.21 26.1699 26.04 26.2299 25.83Z" fill="url(#paint0_linear)"></path><defs><linearGradient id="paint0_linear" x1="34.0027" y1="20.2259" x2="13.9981" y2="20.1838" gradientUnits="userSpaceOnUse"><stop stop-color="#3F74D1"></stop><stop offset="1" stop-color="#5B96E7"></stop></linearGradient></defs></svg>
+
+                        </div>
                         <h4 className="FooterBottom_rext">Выбор самой близкой аптеки по 
                             геолокации пользователя.</h4>
-                    </div>
                 </div>
             </div>
 

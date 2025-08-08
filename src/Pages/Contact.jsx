@@ -29,6 +29,7 @@ function Contact() {
             <div className="contactMain_info">
                 <div className="contactMain_map">
                   <iframe
+                  className='map_contact'
                       src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!
                       1d11984.716302714007!2d69.2601417!3d41.3267192!3m2!1i1024!2i7
                       68!4f13.1!3m3!1m2!1s0x38ae8b4ae75ac603%3A0x5487db9229bf9bdd!2zT3

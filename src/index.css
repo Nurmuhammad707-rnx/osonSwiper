@@ -173,7 +173,7 @@ body{
 .product_image{
   display: flex;
   justify-content: center;
-  min-height: 80px;
+  /* min-height: 80px; */
 }
 .product_name{
     color: #333;
@@ -218,10 +218,12 @@ body{
   font-size: 16px;
   font-weight: 550;
   line-height: 0;
+  font-family: "Montserrat", sans-serif;
+
 }
 .product_info{
   align-items: flex-end;
-  min-height: 44px;
+  /* min-height: 44px; */
   display: grid;
 }
 .drug_image{
@@ -342,10 +344,7 @@ body{
   height: 45px;
 }
 .bottom_FooterBottom{
-  max-width: 166px;
   display: flex;
-  flex-direction: column;
-  text-align: center;
 }
 .FooterBottom_rext{
   font-size: 16px;
@@ -504,4 +503,12 @@ body{
   gap: 5px;
   border-radius: 10px;
   background: white;
+}
+
+
+/* * {
+  outline: 1px solid red !important;
+} */
+.all_button{
+  text-decoration: none;
 }
