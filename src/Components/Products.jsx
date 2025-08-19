@@ -68,33 +68,36 @@ fetch("https://dev.osonapteka.uz/api/web/Product/Popular", {
           768: { slidesPerView: 4, spaceBetween: 40 },
         }}
       >
-        {products.map((product, index) => (
-          <SwiperSlide key={index}>
-            <NavLink to={`/product/${product.slug || product.id}`}
-             style={{ textDecoration: "none", color: "inherit" }} >
-            <div className="about_product">
-              <div className="product_image">
-                <img
-                  src={product.imageURI}
-                  alt={product.productFullName || "Dori"}
-                  className="drug_image"
-                />
-              </div>
-              <div className="product_info">
-                <h3 className="product_name">
-                  {product.productFullName || product.productName}
-                </h3>
-                <div className="icon_price">
-                  <h2 className="product_price">
-                    от {product.minPrice?.toLocaleString() || "0"} сум
-                  </h2>
-                  <img src={angle_right} alt="" className="angle" />
-                </div>
-              </div>
+{products.map((product, index) => (
+  product.slug ? (
+    <SwiperSlide key={index}>
+      <NavLink to={`/product/${product.slug}`}
+        style={{ textDecoration: "none", color: "inherit" }} >
+        <div className="about_product">
+          <div className="product_image">
+            <img
+              src={product.imageURI}
+              alt={product.productFullName || "Dori"}
+              className="drug_image"
+            />
+          </div>
+          <div className="product_info">
+            <h3 className="product_name">
+              {product.productFullName || product.productName}
+            </h3>
+            <div className="icon_price">
+              <h2 className="product_price">
+                от {product.minPrice?.toLocaleString() || "0"} сум
+              </h2>
+              <img src={angle_right} alt="" className="angle" />
             </div>
-            </NavLink>
-          </SwiperSlide>
-        ))}
+          </div>
+        </div>
+      </NavLink>
+    </SwiperSlide>
+  ) : null
+))}
+
       </Swiper>
     </div>
   </div>
