@@ -7,45 +7,25 @@ import phone_icon from "../assets/phone_icon.svg";
 import main_logo from "../assets/apteka_main-logo.svg";
 import ru_icon from '../assets/ru_icon.svg';
 import ProductInstructions from "./ProductInstructions";
-
-const API_KEY = "061233f8-6cc9-4b2a-b887-a5e1eb4079ba";
+import { useProductStore } from "../Components/Store/productStore";  // ✅ store chaqirish
 
 function ProductDetail() {
   const { slug } = useParams();
-  const [product, setProduct] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  const price = 'от '
-  // 1) TileInfo olib kelish
-  useEffect(() => {
-    fetch("https://dev.osonapteka.uz/api/web/Product/TileInfo", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json-patch+json",
-        accept: "text/plain",
-        "Api-Key": API_KEY,
-      },
-      body: JSON.stringify({
-        productSlugList: [slug],
-        regionList: [1],
-        fullName: "",
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.succeeded && data.data?.items?.length) {
-          setProduct(data.data.items[0]);
-        }
-      })
-      .catch((err) => console.error("Xatolik:", err));
-  }, [slug]);
 
-  if (!product) {
-    return <p>Yuklanmoqda...</p>;
-  }
+  const { product, loading, error, fetchProduct } = useProductStore();
+
+  useEffect(() => {
+    if (slug) fetchProduct(slug);
+  }, [slug, fetchProduct]);
+
+  if (loading) return <p>Yuklanmoqda...</p>;
+  if (error) return <p>{error}</p>;
+  if (!product) return <p>Mahsulot topilmadi</p>;
 
   return (
     <>
-    
+      {/* HEADER */}
       <header className='allHeader'>
         <div className="menu-wrapper">
           <button className="icon_button" onClick={() => setMenuOpen(!menuOpen)}>
@@ -55,9 +35,7 @@ function ProductDetail() {
             <div className="menu-popup">
               <div className="open_menu">
                 <img src={home_icon} alt="" className="home_icon" />
-                <nav>
-                  <NavLink className="icon_text" to="/">Главная</NavLink>
-                </nav>
+                <NavLink className="icon_text" to="/">Главная</NavLink>
               </div>
               <div className="open_menu">
                 <img src={mini_icon} alt="" className="home_icon" />
@@ -65,28 +43,25 @@ function ProductDetail() {
               </div>
               <div className="open_menu">
                 <img src={phone_icon} alt="" className="home_icon" />
-                <nav>
-                  <NavLink className="icon_text" to="/contact">Контакты</NavLink>
-                </nav>
+                <NavLink className="icon_text" to="/contact">Контакты</NavLink>
               </div>
             </div>
           )}
         </div>
         <div className="main_logo">
-          <nav>
-            <NavLink to="/">
-              <img src={main_logo} alt="" />
-            </NavLink>
-          </nav>
+          <NavLink to="/">
+            <img src={main_logo} alt="" />
+          </NavLink>
         </div>
         <button className="ru_icon">
           <img src={ru_icon} alt="" className="secondHeader_icon" />
           <h3 className="language_icon">РУ</h3>
         </button>
       </header>
-      <h2 className="instruction_main-title">Oson Apteka - Справочная аптек</h2>
 
-      <div className="product-detail" >
+      {/* PRODUCT */}
+      <h2 className="instruction_main-title">Oson Apteka - Справочная аптек</h2>
+      <div className="product-detail">
         <div className="drugs_flex">
           <img
             src={product.imageURI}
@@ -95,9 +70,8 @@ function ProductDetail() {
           />
           <div>
             <h2 className="drugsDetail-name">{product.productFullName || product.productName}</h2>
-            <p className="drugsDetail-price">{price}{product.minPrice?.toLocaleString()} so‘m</p>
+            <p className="drugsDetail-price">от {product.minPrice?.toLocaleString()} so‘m</p>
             <button className="drugsButton-about">Цена в аптеках</button>
-
           </div>
         </div>
         <h3 className="drugsAbout__info">Характеристики</h3>
@@ -105,10 +79,11 @@ function ProductDetail() {
         <p className="drugsBrand-about"> Производитель: <span>{product.manufacturerName}</span></p>
         <p className="drugsBrand-about"> АТХ: <span>{product.anatomicalTherapeuticChemicalCode} - {product.anatomicalTherapeuticChemicalName}</span></p>
       </div>
-      <ProductInstructions productSlug={slug} />
 
+      {/* INSTRUCTIONS */}
+      <ProductInstructions productSlug={slug} />
     </>
   );
-} 
+}
 
 export default ProductDetail;

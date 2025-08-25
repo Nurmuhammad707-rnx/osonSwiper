@@ -13,14 +13,16 @@ const ProductInstructions = ({ productSlug }) => {
           {
             productSlug: productSlug,
             language: "ru",
+          },
+          {
+            headers: {
+              "Content-Type": "application/json-patch+json",
+              accept: "text/plain",
+            },
           }
         );
 
-        console.log("API to‘liq javobi:", res.data);
-        console.log("Faqat items:", res.data.data.items);
-
         setInstructions(res.data.data?.items || []);
-
       } catch (error) {
         console.error("Xato:", error);
       } finally {
@@ -28,14 +30,10 @@ const ProductInstructions = ({ productSlug }) => {
       }
     };
 
-    if (productSlug) {
-      fetchInstructions();
-    }
+    if (productSlug) fetchInstructions();
   }, [productSlug]);
 
-  if (loading) {
-    return <p>Yuklanmoqda...</p>;
-  }
+  if (loading) return <p>Yuklanmoqda...</p>;
 
   return (
     <div className="instructions">
@@ -44,10 +42,10 @@ const ProductInstructions = ({ productSlug }) => {
         <p>Ma’lumot topilmadi</p>
       ) : (
         instructions.map((item, i) => (
-          <div key={i} className="instruction-item" >
+          <div key={i} className="instruction-item">
             <h3 className="instruction_title">{item.title}</h3>
-            {/* description HTML bo‘lgani uchun */}
-            <div className="red"
+            <div
+              className="red"
               dangerouslySetInnerHTML={{ __html: item.description }}
             />
           </div>
