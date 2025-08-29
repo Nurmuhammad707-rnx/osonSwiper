@@ -133,7 +133,9 @@ function All() {
             </div>
             <div className="more_detail">
               <img src={icon_all} alt="" className="add_icon" />
-              <p className="add_text"> Цена в аптеках</p>
+              <NavLink to="/storePrice">
+              <p className="add_text"> Цена в аптеках</p> 
+              </NavLink>
             </div>
           </div>
         </div>

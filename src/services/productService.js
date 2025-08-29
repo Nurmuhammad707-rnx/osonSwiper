@@ -23,13 +23,21 @@ export const fetchProducts = async (page = 1, pageSize = 20) => {
   return res.data.data;
 };
 
-// 🔹 Product detail
 export const fetchProductDetail = async (slug) => {
-  const res = await axios.get(
-    `https://dev.osonapteka.uz/api/web/Product/Detail/${slug}`
-  );
-  return res.data;
+  try {
+    const res = await axios.get(
+      `https://dev.osonapteka.uz/api/web/Product/Slug/${slug}`
+    );
+    return res.data;
+  } catch (error) {
+    console.error("❌ fetchProductDetail error:", error);
+    throw error;
+  }
 };
+
+
+
+
 
 // 🔹 Product instructions
 export const fetchInstructions = async (slug, language = "ru") => {

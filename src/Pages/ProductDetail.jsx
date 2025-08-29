@@ -12,12 +12,13 @@ import ru_icon from "../assets/ru_icon.svg";
 
 function ProductDetail() {
   const { slug } = useParams();
-  const { productDetail, fetchProductDetail, loading, error } = useProductStore();
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    if (slug) fetchProductDetail(slug);
-  }, [slug, fetchProductDetail]);
+  const { productDetail, getProductDetail, loading, error } = useProductStore();
+ useEffect(() => {
+    if (slug) {
+      getProductDetail(slug); // slug -> guid backendga ketadi
+    }
+  }, [slug, getProductDetail]);
 
   if (loading) return <p>Yuklanmoqda...</p>;
   if (error) return <p>Xatolik: {error}</p>;

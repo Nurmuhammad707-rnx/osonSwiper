@@ -1,6 +1,6 @@
 import Contact from "../Pages/Contact";
 import All from "../Pages/All";
-
+import StorePrice from "../Pages/StorePrice";
 
 export const router =[
     {
@@ -12,5 +12,10 @@ export const router =[
         path:'/allProduct',
         element: <All/>,
         name:"Все"
+    },
+    {
+        path:'/storePrice',
+        element: <StorePrice/>,
+        name:" Цена в аптеках"
     }
 ]

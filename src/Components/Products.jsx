@@ -11,6 +11,7 @@ function Products() {
   const { products, getProducts, loading, error } = useProductStore();
 
   useEffect(() => {
+    
     getProducts();
   }, [getProducts]);
 
@@ -42,6 +43,7 @@ function Products() {
           }}
         >
           {products.map((p) =>
+          
             p.slug ? (
               <SwiperSlide key={p.slug}>
                 <NavLink
