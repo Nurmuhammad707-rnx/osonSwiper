@@ -1,4 +1,4 @@
-// src/services/productService.js
+
 import axios from "axios";
 
 // 🔹 Popular products
@@ -25,8 +25,19 @@ export const fetchProducts = async (page = 1, pageSize = 20) => {
 
 export const fetchProductDetail = async (slug) => {
   try {
-    const res = await axios.get(
-      `https://dev.osonapteka.uz/api/web/Product/Slug/${slug}`
+    const res = await axios.post(
+      "https://dev.osonapteka.uz/api/web/Product/TileInfo",
+      {
+        productSlugList: [slug],
+        regionList: [1],
+        fullName: "string",
+      },
+      {
+        headers: {
+          accept: "text/plain",
+          "Content-Type": "application/json-patch+json",
+        },
+      }
     );
     return res.data;
   } catch (error) {
@@ -39,7 +50,6 @@ export const fetchProductDetail = async (slug) => {
 
 
 
-// 🔹 Product instructions
 export const fetchInstructions = async (slug, language = "ru") => {
   const res = await axios.post(
     "https://dev.osonapteka.uz/api/web/Product/Instructions",
@@ -54,5 +64,39 @@ export const fetchInstructions = async (slug, language = "ru") => {
       },
     }
   );
-  return res.data;
+
+
+  const items = res.data?.data?.items || [];
+
+  return items;
 };
+
+
+
+
+
+
+export const fetchProductStores = async (slug, quantity = 0) => {
+  try {
+    const res = await axios.post(
+      "https://dev.osonapteka.uz/api/web/Pos/ProductList",
+      {
+        productList: [
+          {
+            slug,
+            quantity
+          }
+        ],
+        regionList: [1]
+      }
+    );
+
+    console.log("📦 Stores API response:", res.data);
+    return res.data;
+  } catch (error) {
+    console.error("❌ fetchProductStores error:", error);
+    throw error;
+  }
+};
+
+

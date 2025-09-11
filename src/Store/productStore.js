@@ -1,11 +1,13 @@
 // src/store/productStore.js
 import { create } from "zustand";
-import { fetchProducts, fetchProductDetail, fetchInstructions } from "../services/productService";
+import { fetchProducts, fetchProductDetail, fetchInstructions, fetchProductStores } from "../services/productService";
 
 const useProductStore = create((set) => ({
   products: [],
   productDetail: null,
   instructions: [],
+  stores: [],   
+
   loading: false,
   error: null,
 
@@ -33,16 +35,38 @@ getProducts: async (page = 1) => {
     }
   },
 
-  // 🔹 Product instructions
-  getInstructions: async (slug) => {
-    set({ loading: true, error: null });
-    try {
-      const data = await fetchInstructions(slug);
-      set({ instructions: data, loading: false });
-    } catch (err) {
-      set({ error: err.message, loading: false });
-    }
-  },
+// 🔹 Product instructions
+getInstructions: async (slug) => {
+  set({ loading: true, error: null });
+  try {
+    const data = await fetchInstructions(slug);
+    set({ instructions: data, loading: false }); 
+  } catch (err) {
+    set({ error: err.message, loading: false });
+  }
+},
+
+
+getProductStores: async (slug, quantity = 0) => {
+  set({ loading: true, error: null });
+  try {
+
+    const res = await fetchProductStores(slug, quantity);
+
+    const items = res?.data ?? [];
+
+    set({ stores: items });
+  } catch (err) {
+    set({ error: err.message });
+  } finally {
+    set({ loading: false });
+  }
+},
+
+
+
+
+
 }));
 
 export default useProductStore;

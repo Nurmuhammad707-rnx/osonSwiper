@@ -5,7 +5,7 @@ import "swiper/css";
 
 import next_icon from "../assets/drugs/next_icon.svg";
 import angle_right from "../assets/drugs/angle-right.svg";
-import useProductStore from "../Store/productStore"; // note: store folder, not Components/Store
+import useProductStore from "../Store/productStore"; 
 
 function Products() {
   const { products, getProducts, loading, error } = useProductStore();

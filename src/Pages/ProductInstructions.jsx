@@ -2,11 +2,14 @@ import React, { useEffect } from "react";
 import useProductStore from "../Store/productStore";
 
 const ProductInstructions = ({ productSlug }) => {
-  const { instructions, fetchInstructions, loading } = useProductStore();
+ const { instructions, getInstructions, loading } = useProductStore();
 
-  useEffect(() => {
-    if (productSlug) fetchInstructions(productSlug);
-  }, [productSlug, fetchInstructions]);
+useEffect(() => {
+  if (productSlug) getInstructions(productSlug);
+}, [productSlug, getInstructions]);
+
+
+
 
   if (loading) return <p>Yuklanmoqda...</p>;
 

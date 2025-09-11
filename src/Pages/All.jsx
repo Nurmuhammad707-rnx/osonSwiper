@@ -133,9 +133,13 @@ function All() {
             </div>
             <div className="more_detail">
               <img src={icon_all} alt="" className="add_icon" />
-              <NavLink to="/storePrice">
+              {/* <NavLink to="/storePrice">
               <p className="add_text"> Цена в аптеках</p> 
-              </NavLink>
+              </NavLink> */}
+              <NavLink to={`/storePrice/${product.slug}`}>
+  <button className="add_text">Цена в аптеках</button>
+</NavLink>
+
             </div>
           </div>
         </div>
