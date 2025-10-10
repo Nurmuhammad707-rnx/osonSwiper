@@ -25,23 +25,27 @@ export const fetchProducts = async (page = 1, pageSize = 20) => {
 
 export const fetchProductDetail = async (slug) => {
   try {
+
     const res = await axios.post(
-      "https://dev.osonapteka.uz/api/web/Product/TileInfo",
+      "http://192.168.111.41:3200/api/web/Product/TileInfo",
       {
         productSlugList: [slug],
         regionList: [1],
         fullName: "string",
+
       },
       {
         headers: {
           accept: "text/plain",
           "Content-Type": "application/json-patch+json",
+          "CF-Connecting-IP": "213.230.110.212"
         },
       }
     );
-    return res.data;
+    console.log('resData', res.data)
+    return res || res.data;
   } catch (error) {
-    console.error("❌ fetchProductDetail error:", error);
+    console.error("fetchProductDetail error:", error);
     throw error;
   }
 };
@@ -49,7 +53,7 @@ export const fetchProductDetail = async (slug) => {
 
 
 
-
+// togirla 
 export const fetchInstructions = async (slug, language = "ru") => {
   const res = await axios.post(
     "https://dev.osonapteka.uz/api/web/Product/Instructions",
@@ -64,9 +68,9 @@ export const fetchInstructions = async (slug, language = "ru") => {
       },
     }
   );
+  console.log("API:", res.data);
 
-
-  const items = res.data?.data?.items || [];
+  const items = res.data?.data?.items || res?.data?.data || [];
 
   return items;
 };

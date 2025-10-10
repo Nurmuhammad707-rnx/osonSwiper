@@ -16,9 +16,9 @@ import icon_all from '../assets/icon_all.svg';
 function All() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [products, setProducts] = useState([]);
-  const [page, setPage] = useState(1); // hozirgi sahifa
+  const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(true); // keyingi sahifa bormi yo'qmi
+  const [hasMore, setHasMore] = useState(true);
 
   const fetchProducts = async (pageNumber) => {
     try {
@@ -129,17 +129,19 @@ function All() {
           <div className="add_button">
             <div className="more_detail">
               <img src={eye_icon} alt="" className="add_icon" />
-              <p className="add_text"> Подробнее</p>
+              <NavLink
+                to={`/product/${product.slug}`}
+                style={{ textDecoration: "none", color: "inherit" }}>
+                <p className="add_text"> Подробнее</p>
+              </NavLink>
+
             </div>
             <div className="more_detail">
               <img src={icon_all} alt="" className="add_icon" />
-              {/* <NavLink to="/storePrice">
-              <p className="add_text"> Цена в аптеках</p> 
-              </NavLink> */}
-              <NavLink to={`/storePrice/${product.slug}`}>
-  <button className="add_text">Цена в аптеках</button>
-</NavLink>
 
+              <NavLink to={`/storePrice/${product.slug}`}>
+                <button className="add_text">Цена в аптеках</button>
+              </NavLink>
             </div>
           </div>
         </div>

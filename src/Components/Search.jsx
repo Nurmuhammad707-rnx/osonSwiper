@@ -15,6 +15,8 @@ function Search(){
       <button type="submit" className="search_button"><img src={search_icon} alt="" className="search_img" /></button>
       <input 
         type="text"
+        id="search"
+        name="search"
         placeholder="Начните вводить в поиск"
         value={query}
         onChange={(e) => setQuery(e.target.value)}

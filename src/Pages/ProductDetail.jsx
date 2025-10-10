@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import ProductInstructions from "./ProductInstructions";
 import useProductStore from "../Store/productStore";
@@ -13,20 +13,22 @@ import ru_icon from "../assets/ru_icon.svg";
 function ProductDetail() {
   const { slug } = useParams();
   const [menuOpen, setMenuOpen] = useState(false);
-  const { productDetail, getProductDetail, loading, error } = useProductStore();
- useEffect(() => {
-    if (slug) {
-      getProductDetail(slug); // slug -> guid backendga ketadi
-    }
-  }, [slug, getProductDetail]);
+  const { loading, error, getProductDetail, getInstructions, productDetail } = useProductStore();
+
+
+  useEffect(() => {
+    getProductDetail(slug);
+    getInstructions(slug);
+  }, [slug]);
 
   if (loading) return <p>Yuklanmoqda...</p>;
   if (error) return <p>Xatolik: {error}</p>;
   if (!productDetail) return <p>Ma’lumot topilmadi</p>;
-
+  console.log("productDetail:", productDetail);
+  console.log("slug:", slug);
+  
   return (
     <>
-      {/* HEADER */}
       <header className="allHeader">
         <div className="menu-wrapper">
           <button className="icon_button" onClick={() => setMenuOpen(!menuOpen)}>
@@ -58,7 +60,6 @@ function ProductDetail() {
         </button>
       </header>
 
-      {/* PRODUCT */}
       <h2 className="instruction_main-title">Oson Apteka - Справочная аптек</h2>
       <div className="product-detail">
         <div className="drugs_flex">
@@ -66,7 +67,12 @@ function ProductDetail() {
           <div>
             <h2 className="drugsDetail-name">{productDetail.productFullName || productDetail.productName}</h2>
             <p className="drugsDetail-price">от {productDetail.minPrice?.toLocaleString()} so‘m</p>
-            <button className="drugsButton-about">Цена в аптеках</button>
+
+            <NavLink to={`/storePrice/${slug}`}>
+              <button className="drugsButton-about">Цена в аптеках</button>
+            </NavLink>
+
+
           </div>
         </div>
         <h3 className="drugsAbout__info">Характеристики</h3>
@@ -75,9 +81,8 @@ function ProductDetail() {
         <p className="drugsBrand-about"> АТХ: <span>{productDetail.anatomicalTherapeuticChemicalCode} - {productDetail.anatomicalTherapeuticChemicalName}</span></p>
       </div>
 
-      {/* INSTRUCTIONS */}
       <ProductInstructions productSlug={slug} />
-    </>
+    </> 
   );
 }
 

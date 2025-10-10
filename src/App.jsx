@@ -17,9 +17,7 @@ function App() {
                     <Route path="/product/:slug" element={<ProductDetail />} />
                     <Route path="/storePrice" element={<StorePrice />} />
                     <Route path="/storePrice/:slug" element={<StorePrice />} />
-
-
-                    
+ 
                 </Routes>
             </div>
         </div>

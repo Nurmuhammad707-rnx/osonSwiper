@@ -99,6 +99,8 @@
     font-size: 14px;
     font-weight: 600;
     margin: 0;
+        border: none;
+    color: #3873D3;
 }
 .drugs_card{
     padding: 16px 14px;
@@ -161,7 +163,6 @@
     border-radius: 10px;
     color: #fff;
     cursor: pointer;
-    display: flex;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
