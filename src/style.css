@@ -1,50 +1,55 @@
-.allHeader{
+.allHeader {
     display: flex;
     justify-content: space-between;
 }
-.bread_crumc{
+
+.bread_crumc {
     display: flex;
     align-items: center;
 
 }
-.breadcrumb{
-    /* margin-top: 10px !important; */
+
+.breadcrumb {
     position: relative;
     top: 3.5px;
     left: 4px;
 }
-.a{
+
+.a {
     text-decoration: none;
-  font-family: "Montserrat", sans-serif;
-
+    font-family: "Montserrat", sans-serif;
+    color: inherit;
 
 }
 
 
 
-.popular{
+.popular {
     color: gray;
-  font-family: "Montserrat", sans-serif;
- /* hato bolsa*/
+    font-family: "Montserrat", sans-serif;
 }
-.drugs_card{
+
+.drugs_card {
     background: transparent;
     border: 1px solid #d9dbe1;
     border-radius: 10px;
     margin-top: 24px;
 
 }
-.drugs_about{
+
+.drugs_about {
     display: flex;
     width: 100%;
     gap: 20px;
 }
-.all_image{
+
+.all_image {
     width: 80px;
     height: 80px;
 
 }
-.drugs_text{
+
+.drugs_text {
     color: #333;
     display: -webkit-box;
     font-size: 18px;
@@ -59,8 +64,9 @@
     font-family: "Montserrat", sans-serif;
     margin: 0;
 }
+
 .drugs_priceIn,
-.drugs_price{
+.drugs_price {
     align-items: center;
     color: #3873d3;
     cursor: pointer;
@@ -73,17 +79,20 @@
     font-family: "Montserrat", sans-serif;
 
 }
-.drugs_priceIn{
-    font-weight:600 ;
+
+.drugs_priceIn {
+    font-weight: 600;
 }
-.add_button{
+
+.add_button {
     display: flex;
     align-items: center;
     justify-content: start;
     gap: 20px;
     margin: 0;
 }
-.more_detail{
+
+.more_detail {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -95,42 +104,66 @@
     padding: 12px 16px;
     gap: 10px;
 }
-.add_text{
+
+.add_text {
     font-size: 14px;
     font-weight: 600;
     margin: 0;
-        border: none;
+    border: none;
     color: #3873D3;
 }
-.drugs_card{
+
+.drugs_card {
     padding: 16px 14px;
 
 }
-.drugs_flex{
+
+.drugs_flex {
     display: flex;
     align-items: center;
 }
-.instructions{
-        margin-top: 30px;
+
+.instructions {
     font-size: 30px;
-    line-height: 100%;
-    margin-top: 65px;
+    line-height: 0;
+    line-height: 1;
 }
-.red{
+
+.red {
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
 }
 
-.instruction_title{
-    font-size: 20px;
+.instruction_title {
+    font-size: 18px;
     font-family: "Montserrat", sans-serif;
+    font-weight: 500;
 }
-.instruction_main-title{
-    font-size: 25px;
+
+.instruction_main-title {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    padding-top: 32px;
     font-family: "Montserrat", sans-serif;
-    margin-bottom: 50px;
+    border-bottom: 1px solid #91AAb8;
 }
-.drugsDetail-name{
+
+
+
+.instruction_main-titlee {
+    font-size: 28px;
+    line-height: 33px;
+    margin: 0;
+    padding-top: 16px;
+    font-family: "Montserrat", sans-serif;
+
+}
+
+
+
+.drugsDetail-name {
     color: #333;
     display: -webkit-box;
     font-size: 16px;
@@ -144,7 +177,8 @@
     -webkit-box-orient: vertical;
     font-family: "Montserrat", sans-serif;
 }
-.drugsDetail-price{
+
+.drugsDetail-price {
     align-items: center;
     color: #3873d3;
     display: flex;
@@ -155,7 +189,8 @@
     font-family: "Montserrat", sans-serif;
 
 }
-.drugsButton-about{
+
+.drugsButton-about {
     color: #3873d3;
     align-items: center;
     background-color: #3873d3;
@@ -172,24 +207,32 @@
     text-decoration: none;
     z-index: 0;
 }
+
 .drugsButton-about:hover {
-    background-color: #285bb8; /* orqasi boshqa rangga o‘zgaradi */
-    color: #fff;              /* matn rangi oq qoladi */
-    transform: scale(1.05);   /* hover bo‘lganda biroz kattalashadi */
-    transition: all 0.3s ease; /* o‘tish yumshoq bo‘lsin */
+    background-color: #285bb8;
+    /* orqasi boshqa rangga o‘zgaradi */
+    color: #fff;
+    /* matn rangi oq qoladi */
+    transform: scale(1.05);
+    /* hover bo‘lganda biroz kattalashadi */
+    transition: all 0.3s ease;
+    /* o‘tish yumshoq bo‘lsin */
 }
-.drugsAbout__info{
+
+.drugsAbout__info {
     font-size: 17px;
     color: #333333;
     font-weight: 600;
     font-family: "Montserrat", sans-serif;
 
 }
+
 .drugsBrand-about {
-  display: grid;
-  grid-template-columns: 200px auto; /* chap ustun kengligi 200px */
-  margin-bottom: 8px;
-  color: #91aab8;
+    display: grid;
+    grid-template-columns: 200px auto;
+    /* chap ustun kengligi 200px */
+    margin-bottom: 8px;
+    color: #91aab8;
     flex: 1;
     font-size: 16px;
     font-style: normal;
@@ -204,8 +247,9 @@
 }
 
 .drugsBrand-about span {
-  margin-left: 120px; /* chapdan masofa */
-      color: #333;
+    margin-left: 120px;
+    /* chapdan masofa */
+    color: #333;
     flex: 2;
     font-size: 16px;
     font-style: normal;
@@ -214,4 +258,345 @@
     min-width: 180px;
     font-family: "Montserrat", sans-serif;
     word-wrap: break-word;
+}
+
+.pharmacy_count {
+    font-size: 17px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 550;
+    line-height: 150%;
+    overflow: hidden;
+    margin-top: -5px;
+
+}
+
+.page_reminder {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: "Montserrat", sans-serif;
+    overflow: hidden;
+    font-size: 15px;
+    font-weight: 100;
+    margin-top: 24px;
+
+}
+
+.nav-link {
+    text-decoration: none;
+    color: inherit;
+
+}
+
+.gray {
+    font-weight: 14px;
+    color: #91AAb8;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 380;
+}
+
+.drug-information {
+    font-weight: 450;
+    line-height: 150%;
+}
+
+.offer-instruction__item-text,
+.panel-body,
+.instruction_p {
+    color: #333 !important;
+    font-size: 14px !important;
+    font-style: normal !important;
+    font-weight: 470 !important;
+    line-height: 150% !important;
+    font-family: "Montserrat", sans-serif;
+
+}
+
+.instruction_way {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    padding-top: 12px;
+    font-family: "Montserrat", sans-serif;
+    border-bottom: 1px solid #91AAb8;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    cursor: pointer;
+}
+
+/* .bottom_line {
+    border-bottom: 1px solid #91AAb8;
+} */
+
+.no_info {
+    font-size: 17px;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+}
+
+.card {
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.filter_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 10px;
+    background-image: linear-gradient(270.12deg, #3f74d1 .13%, #5b96e7 99.94%);
+    padding: 0px 15px;
+
+}
+
+.one {
+    background-color: red;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 6px;
+    position: absolute;
+    right: -5px;
+    top: -4px;
+    z-index: 1;
+}
+
+.button_info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+}
+
+.buttonIn_name {
+    font-size: 14px;
+    overflow: hidden;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 550;
+    color: #fff;
+}
+
+.buttonIn_img {
+    height: 20px;
+    margin-right: 10px;
+    width: 20px;
+}
+
+.country_druge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.inUzbek {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.country_druge {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px #00000014;
+    margin-top: 20px;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+
+}
+
+.search_drugs {
+    color: #91aab8;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1%;
+
+}
+
+.onlyUzb {
+    color: #3873D3;
+    align-items: center;
+    margin-left: 5px;
+    font-weight: 550;
+}
+
+.all_button {
+    text-decoration: none;
+}
+
+.stre_imgUrl {
+    width: 93px;
+    padding-left: 13px;
+    padding-top: 13px;
+    border-radius: 22px;
+
+}
+
+table {
+    display: none;
+}
+
+.threeP {
+    font-size: 14px;
+    color: #333333;
+    font-weight: 450;
+    line-height: 140%;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+.storePrice {
+    color: #3873d3;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 650;
+    line-height: 100%;
+    padding-left: 22px;
+    padding-top: 8px;
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+}
+
+.pharmasyName {
+    font-size: 17px;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    line-height: 100%;
+    margin: 0;
+    padding-left: 22px;
+    padding-top: 15px;
+}
+
+
+
+
+.cheapNear {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    padding: 4px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+.cheap,
+.near {
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+    cursor: pointer;
+    flex: 1;
+    font-size: 15px;
+    font-weight: 500;
+    height: 42px;
+    line-height: 100%;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    text-overflow: ellipsis;
+    transition: all .4s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+    border-radius: 8px;
+    border: none;
+}
+
+.cheap,
+.near {
+    background-color: transparent;
+    color: #000000de;
+}
+
+.cheap.active,
+.near.active {
+    background-color: white;
+    color: #000000de;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.drugsInfo_share {
+    display: flex;
+    align-items: center;
+    background: #91aab826;
+    border-radius: 10px;
+    color: #3873d3;
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    margin-right: 24px;
+    border: none;
+    padding: 12px 16px;
+}
+
+.p {
+    margin: 0;
+    padding: 0;
+}
+
+.justImg {
+    /* margin-left: -3px; */
+    /* margin-top: 3px; */
+    /* height: max-content; */
+    /* width: max-content; */
+    margin-right: 8px;
+    margin-bottom: 2px;
+
+}
+
+.greenDot {
+    position: absolute;
+    right: 0px;
+    bottom: 4px;
+    width: 12px;
+    height: 12px;
+    background-color: #4caf50;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.imgDot {
+    position: relative;
+    height: 120px;
+}
+
+.twoBorder {
+    border: 1px solid rgba(145, 170, 184, .15);
+    border-radius: 6px;
+    color: #000;
+    /* padding-top: 16px;
+    padding-inline: 22px; */
+}
+
+.product-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    padding: 10px 16px;
+}
+
+.drugs_wrapper {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    line-height: 140%;
+
 }

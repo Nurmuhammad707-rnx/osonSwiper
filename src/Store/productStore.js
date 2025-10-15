@@ -39,18 +39,6 @@ const useProductStore = create((set) => ({
     }
   },
 
-  // getInstructions: async (slug) => {
-  //   if (!slug) return;
-
-  //   set({ loading: true, error: null });
-  //   try {
-  //     const data = await fetchInstructions(slug);
-  //     set({ instructions: data, loading: false }); 
-  //   } catch (err) {
-  //     console.error("Fetch error:", err);
-  //     set({ error: err.message, loading: false });
-  //   }
-  // },
 
 
 
@@ -68,18 +56,14 @@ const useProductStore = create((set) => ({
 
 
 
-  //   getInstructions: async (slug, language = 1) => {
-  //   try {
-  //     set({ loading: true, error: null });
-  //     const data = await fetchInstructions(slug, language);
-  //     const items = data?.data?.items || [];
-  //     set({ instructions: items, loading: false });
-  //     return items;
-  //   } catch (error) {
-  //     console.error("Xatolik:", error);
-  //     set({ error: "Ma’lumotni olishda xato", loading: false });
-  //   }
-  // },
+
+
+
+
+
+
+
+// bu eng keregi
 
   getProductStores: async (slug, quantity = 0) => {
     set((state) => ({ ...state, loading: true, error: null }));
@@ -90,12 +74,18 @@ const useProductStore = create((set) => ({
       const items = res?.data?.items || [];
 
       set((state) => ({ ...state, stores: Array.isArray(items) ? items : [] }));
+      return res;
     } catch (err) {
       set((state) => ({ ...state, error: err.message }));
     } finally {
       set((state) => ({ ...state, loading: false }));
     }
   },
+
+
+
+
+
 
 
 

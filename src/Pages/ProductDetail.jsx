@@ -3,30 +3,49 @@ import { useParams, NavLink } from "react-router-dom";
 import ProductInstructions from "./ProductInstructions";
 import useProductStore from "../Store/productStore";
 
+
 import button_icon from "../assets/menuIcon.svg";
 import home_icon from "../assets/home_icon.svg";
 import mini_icon from "../assets/mini_logo.svg";
 import phone_icon from "../assets/phone_icon.svg";
 import main_logo from "../assets/apteka_main-logo.svg";
 import ru_icon from "../assets/ru_icon.svg";
+import angle_right from '../assets/drugs/angle-right.svg'
+
+
 
 function ProductDetail() {
   const { slug } = useParams();
   const [menuOpen, setMenuOpen] = useState(false);
   const { loading, error, getProductDetail, getInstructions, productDetail } = useProductStore();
-
+  const [productName, setProductName] = useState('')
 
   useEffect(() => {
-    getProductDetail(slug);
-    getInstructions(slug);
-  }, [slug]);
+    const loadData = async () => {
+      try {
+        if (!slug) return;
+        const data = await getProductDetail(slug);
+
+        const name =
+          data?.data?.items?.[0]?.productList?.[0]?.productName ||
+          data?.data?.items?.[0]?.productFullName ||
+          "Дори маълумоти";
+        setProductName(name);
+        getInstructions(slug);
+      } catch (err) {
+        console.warn("Xatolik:", err.message);
+      }
+    };
+
+    loadData();
+  }, [slug, getProductDetail, getInstructions]);
 
   if (loading) return <p>Yuklanmoqda...</p>;
   if (error) return <p>Xatolik: {error}</p>;
   if (!productDetail) return <p>Ma’lumot topilmadi</p>;
   console.log("productDetail:", productDetail);
   console.log("slug:", slug);
-  
+
   return (
     <>
       <header className="allHeader">
@@ -60,7 +79,25 @@ function ProductDetail() {
         </button>
       </header>
 
-      <h2 className="instruction_main-title">Oson Apteka - Справочная аптек</h2>
+
+
+      <div className="page_reminder">
+
+        <NavLink to={'/'} className='nav-link'>
+          <h4 className="drug-information">Главная</h4>
+        </NavLink>
+
+        <img src={angle_right} alt="" />
+
+        <h4>
+          <strong className="drug-information">{productName || "Дори маълумоти"}</strong>
+        </h4>
+
+
+
+      </div>
+
+      <h2 className="instruction_main-titlee">Oson Apteka - Справочная аптек</h2>
       <div className="product-detail">
         <div className="drugs_flex">
           <img src={productDetail.imageURI} alt={productDetail.productFullName || "Dori"} style={{ width: "200px" }} />
@@ -82,7 +119,7 @@ function ProductDetail() {
       </div>
 
       <ProductInstructions productSlug={slug} />
-    </> 
+    </>
   );
 }
 

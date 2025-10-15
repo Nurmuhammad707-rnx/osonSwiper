@@ -1,5 +1,6 @@
 
 import axios from "axios";
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 // 🔹 Popular products
 export const fetchProducts = async (page = 1, pageSize = 20) => {
@@ -17,6 +18,7 @@ export const fetchProducts = async (page = 1, pageSize = 20) => {
       headers: {
         accept: "text/plain",
         "Content-Type": "application/json-patch+json",
+        "CF-Connecting-IP": "213.230.110.212"
       },
     }
   );
@@ -25,7 +27,6 @@ export const fetchProducts = async (page = 1, pageSize = 20) => {
 
 export const fetchProductDetail = async (slug) => {
   try {
-
     const res = await axios.post(
       "http://192.168.111.41:3200/api/web/Product/TileInfo",
       {
@@ -65,6 +66,7 @@ export const fetchInstructions = async (slug, language = "ru") => {
       headers: {
         accept: "text/plain",
         "Content-Type": "application/json-patch+json",
+        "CF-Connecting-IP": "213.230.110.212"
       },
     }
   );
@@ -92,6 +94,13 @@ export const fetchProductStores = async (slug, quantity = 0) => {
           }
         ],
         regionList: [1]
+      },
+      {
+        headers: {
+          accept: "text/plain",
+          "Content-Type": "application/json-patch+json",
+          "CF-Connecting-IP": "213.230.110.212"
+        },
       }
     );
 

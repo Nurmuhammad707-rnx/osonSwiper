@@ -16,7 +16,7 @@ function ImageSlider() {
   return (
     <div className='js-slider'>
       <Swiper
-        spaceBetween={30}
+        spaceBetween={20}
         centeredSlides={true}
         autoplay={{
           delay: 2500,
@@ -32,5 +32,6 @@ function ImageSlider() {
     </div>
   );
 }
+
 
 export default ImageSlider;

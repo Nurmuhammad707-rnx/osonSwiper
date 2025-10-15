@@ -12,6 +12,9 @@ import ru_icon from '../assets/ru_icon.svg';
 import Breadcrumb from './BreadCrumb';
 import eye_icon from '../assets/eye_icon.svg';
 import icon_all from '../assets/icon_all.svg';
+import angle_down from '../assets/bottom_angle.svg'
+
+
 
 function All() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -41,11 +44,13 @@ function All() {
           }
         }
       );
-
+      console.log('api jovob', response.data)
       const newItems = response.data.data.items;
 
       if (newItems.length < 20) {
+        console.warn("API bo‘sh ma’lumot qaytardi yoki format o‘zgargan");
         setHasMore(false);
+        return;
       }
 
       setProducts(prev => [...prev, ...newItems]);
@@ -108,6 +113,17 @@ function All() {
       </header>
 
       <Breadcrumb />
+      <div className="country_druge">
+        <div>
+          <p className="search_drugs">Искать препараты:</p>
+        </div>
+        <div className="inUzbek">
+          <p className="onlyUzb">По всему Узбекистану </p>
+          <img src={angle_down} alt="" />
+        </div>
+      </div>
+
+
 
       {products.map((product, index) => (
         <div className='drugs_card' key={index}>
