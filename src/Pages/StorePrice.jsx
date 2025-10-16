@@ -55,7 +55,7 @@ function StorePrice() {
   }, [slug, getProductStores, page]);
 
 
-  if (loading) return <p>yuklanvotti</p>;
+  // if (loading) return <p>yuklanvotti</p>;
 
   return (
     <div >

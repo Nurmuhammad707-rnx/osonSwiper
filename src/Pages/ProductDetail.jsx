@@ -40,7 +40,7 @@ function ProductDetail() {
     loadData();
   }, [slug, getProductDetail, getInstructions]);
 
-  if (loading) return <p>Yuklanmoqda...</p>;
+  // if (loading) return <p>Yuklanmoqda...</p>;
   if (error) return <p>Xatolik: {error}</p>;
   if (!productDetail) return <p>Ma’lumot topilmadi</p>;
   console.log("productDetail:", productDetail);
