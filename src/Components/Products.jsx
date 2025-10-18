@@ -35,6 +35,7 @@ function Products() {
           slidesPerView={1}
           spaceBetween={10}
           breakpoints={{
+            300: { slidesPerView: 2, spaceBetween: 40 },
             400: { slidesPerView: 2, spaceBetween: 40 },
             530: { slidesPerView: 2, spaceBetween: 30 },
             640: { slidesPerView: 2, spaceBetween: 20 },

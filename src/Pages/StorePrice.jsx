@@ -55,7 +55,7 @@ function StorePrice() {
   }, [slug, getProductStores, page]);
 
 
-  // if (loading) return <p>yuklanvotti</p>;
+
 
   return (
     <div >
@@ -159,7 +159,7 @@ function StorePrice() {
 
       {stores.map((store, i) => (
         <React.Fragment key={i}>
-          <div className="carw_wrapper" >
+          {/* <div className="carw_wrapper" > */}
             <div className="card">
 
               <div className="imgDot">
@@ -167,7 +167,7 @@ function StorePrice() {
                 <span className="greenDot"></span>
               </div>
 
-              <div style={{ display: 'block' }}>
+              <div className="card_main" style={{ display: 'block' }}>
                 <div className="card_body">
                   <div style={{ display: 'flex', gap: '8px' }}>
                     <h3 className="pharmasyName">{store.name}</h3>
@@ -180,7 +180,7 @@ function StorePrice() {
                       : "Narx ko‘rsatilmagan"}
                   </p>
 
-                  <div style={{ paddingLeft: '38px', paddingTop: '6px' }}>
+                  <div className="storeLocation" >
                     <div style={{ display: 'flex', alignItems: 'center', marginLeft: '-23px' }}>
                       <img src={map_market} alt="" className="justImg" />
                       <p className="threeP">{store.regionName}, {store.parentRegionName}</p>
@@ -190,11 +190,11 @@ function StorePrice() {
                   </div>
                 </div>
 
-                <div style={{ display: "flex", gap: '15px', paddingTop: '16px', paddingInline: '22px' }}>
+                <div className="storeTime" >
 
                   <div className="twoBorder" style={{ display: 'flex', padding: '2px 10px' }}>
                     <img src={watch} alt="" style={{ width: '16px', height: '16px', marginRight: '8px' }} />
-                    <p className="threeP" style={{ fontSize: '13px' }}>
+                    <p className="threeP_time" >
                       {store.openTime?.slice(0, 5)} - {store.closedTime?.slice(0, 5)}
                     </p>
                   </div>
@@ -217,8 +217,8 @@ function StorePrice() {
 
 
 
-                <div style={{ paddingTop: '15px', padding: '22px 16px 0px 22px' }}>
-                  <div style={{ display: 'flex' }}>
+                <div className="storeInfo" >
+                  <div className="drugsInfo_wrapper" style={{ display: 'flex' }}>
                     <button className="drugsInfo_share">
                       <img src={drug_tel} alt="" style={{ width: '16px', height: '16px', marginRight: '10px' }} />
                       <p className="p">
@@ -239,14 +239,14 @@ function StorePrice() {
                     </button>
                   </div>
 
-                  <div style={{ padding: '16px 0px 0px 0px ' }}>
+                  <div className="productInfo_wrapper" style={{ padding: '16px 0px 0px 0px ' }}>
                     {store.productList.map((p, j) => (
                       <div key={j} className="product-info">
                         <img src={drug_check} alt="" />
-                        <strong className="drugs_wrapper" style={{ paddingLeft: '10px', }} >{p.productName}</strong>
+                        <strong className="drugs_wrapper"  >{p.productName}</strong>
                         <strong>,</strong>
-                        <p className="drugs_wrapper" style={{ margin: '0' }}>{p.brandName}</p>
-                        <p className="drugs_wrapper" style={{ margin: '0' }}> {p.price} so‘m</p>
+                        <p className="drugs_wrapper" >{p.brandName}</p>
+                        <p className="drugs_wrapper" > {p.price} so‘m</p>
                       </div>
 
 
@@ -264,7 +264,7 @@ function StorePrice() {
 
 
 
-            </div>
+            {/* </div> */}
           </div>
           {i === 0 && <ImageSlider />}
         </React.Fragment>

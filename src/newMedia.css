@@ -1,0 +1,333 @@
+@media (max-width: 750px) {
+    .instruction_main-titlee {
+        padding-top: 5px;
+        font-weight: 700;
+        font-size: 26px;
+    }
+
+    ul {
+        margin: 0;
+    }
+
+    ul li {
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .character {
+        margin-left: 50px;
+    }
+
+    .drugsButton-about {
+        margin-left: 50px;
+    }
+
+    .instruction_main-title {
+        margin: 0;
+        padding-bottom: 5px;
+    }
+
+    .add_main {
+        max-width: 100%;
+    }
+
+    .pharmacy_count {
+        font-size: 16px;
+        margin-top: -17px;
+
+    }
+
+    .buttonIn_name {
+        display: none;
+    }
+
+    .buttonIn_img {
+        padding: 10px;
+        margin: 0;
+    }
+
+    .filter_button {
+        padding: 0;
+    }
+
+    .country_druge {
+        margin: 0;
+    }
+
+    .inUzbek,
+    .search_drugs {
+        font-size: 16px;
+
+    }
+
+    .cheap.active,
+    .near.active {
+        font-weight: 550;
+    }
+
+    .stre_imgUrl {
+        height: 48px;
+        width: 48px;
+
+    }
+
+    .stre_imgUrl {
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .imgDot {
+        height: 60px;
+    }
+
+    .pharmasyName {
+        padding-top: 7px;
+        padding-left: 10px;
+        font-weight: 550;
+    }
+
+    .storePrice {
+        padding-left: 12px;
+        padding-top: 4px;
+    }
+
+    .storeLocation {
+        padding-left: 0px;
+        padding-top: 11px;
+        position: relative;
+        left: -20px;
+
+    }
+
+    .storeTime {
+        position: relative;
+        left: -50px;
+        padding-inline: 0;
+    }
+
+    .storeInfo {
+        padding-top: 15px;
+        padding-left: 0;
+        position: relative;
+        left: -50px;
+    }
+
+    .threeP_time {
+        font-size: 12px;
+        font-weight: 550;
+    }
+
+    .drugsInfo_share img {
+        display: none;
+    }
+
+    .p {
+        font-weight: 550;
+    }
+
+    .drugFlex_img {
+        width: 166px;
+        height: 166px;
+        margin-right: 15px;
+    }
+
+    .js-slide-img {
+        height: 200px;
+
+    }
+}
+
+@media (max-width: 600px) {
+
+    .pharmasyName {
+        font-size: 16px;
+    }
+
+    .drugs_wrapper {
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .product-info {
+        padding: 8px 10px;
+        max-width: 100%;
+        width: 90%;
+    }
+
+    .storeInfo,
+    .storeTime {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .gray,
+    .drug-information {
+        font-size: 12px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .page_reminder {
+        gap: 5px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+
+
+    .drugsInfo_share {
+        padding: 9px;
+    }
+
+    .threeP {
+        line-height: 160%;
+    }
+
+    .storeInfo {
+        padding: 0;
+    }
+
+    .card_main {
+        width: 90%;
+    }
+
+    .inUzbek,
+    .search_drugs {
+        margin: 0;
+        line-height: normal;
+    }
+
+    .onlyUzb {
+        margin: 0;
+        margin-top: 5px;
+    }
+
+    .country_druge {
+        margin-top: 20px;
+    }
+
+    .p {
+        font-size: 14px;
+
+    }
+
+    .storeInfo {
+        padding-top: 15px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    /* .storeInfo, .storeTime{
+        width: 75%
+    }
+    .card_mainP{
+        width: 90%;
+    }
+    .storeLocation{
+        width: 70%;
+    } */
+    .card_main {
+        width: 90%;
+    }
+
+    .inUzbek,
+    .search_drugs {
+        margin: 0;
+        line-height: normal;
+    }
+
+    .onlyUzb {
+        margin: 0;
+        margin-top: 5px;
+    }
+
+    .country_druge {
+        margin-top: 20px;
+    }
+
+    .p {
+        font-size: 14px;
+
+    }
+
+    .storeInfo {
+        padding-top: 15px;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .inUzbek,
+    .search_drugs {
+        margin: 0;
+        line-height: normal;
+    }
+
+    .onlyUzb {
+        margin: 0;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    .country_druge {
+        margin-top: 20px;
+    }
+
+    .p {
+        font-size: 14px;
+
+    }
+
+    .drugsInfo_share {
+        padding: 7px;
+    }
+
+    .drugsInfo_wrapper {
+        width: 120%;
+    }
+
+    .js-slide-img {
+        height: 120px;
+    }
+
+    .country_druge {
+        display: block;
+    }
+
+    .instruction_main-titlee {
+        font-size: 24px;
+    }
+
+    .drugFlex_img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .drugsBrand-about {
+        grid-template-columns: 100px auto;
+        font-size: 14px;
+    }
+
+    .character {
+        margin-left: 25px;
+        font-size: 14px;
+
+    }
+
+    .drugsButton-about {
+        margin-left: 0;
+    }
+
+    /* .swiper-slide {
+        width: ;
+    } */
+    .storeInfo {
+        padding-top: 15px;
+    }
+}

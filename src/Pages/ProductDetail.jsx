@@ -42,7 +42,7 @@ function ProductDetail() {
 
   // if (loading) return <p>Yuklanmoqda...</p>;
   if (error) return <p>Xatolik: {error}</p>;
-  if (!productDetail) return <p>Ma’lumot topilmadi</p>;
+  if (!productDetail) return <p></p>;
   console.log("productDetail:", productDetail);
   console.log("slug:", slug);
 
@@ -100,7 +100,7 @@ function ProductDetail() {
       <h2 className="instruction_main-titlee">Oson Apteka - Справочная аптек</h2>
       <div className="product-detail">
         <div className="drugs_flex">
-          <img src={productDetail.imageURI} alt={productDetail.productFullName || "Dori"} style={{ width: "200px" }} />
+          <img className="drugFlex_img" src={productDetail.imageURI} alt={productDetail.productFullName || "Dori"}  />
           <div>
             <h2 className="drugsDetail-name">{productDetail.productFullName || productDetail.productName}</h2>
             <p className="drugsDetail-price">от {productDetail.minPrice?.toLocaleString()} so‘m</p>
@@ -113,12 +113,12 @@ function ProductDetail() {
           </div>
         </div>
         <h3 className="drugsAbout__info">Характеристики</h3>
-        <p className="drugsBrand-about"> Бренд: <span>{productDetail.brandName}</span></p>
-        <p className="drugsBrand-about"> Производитель: <span>{productDetail.manufacturerName}</span></p>
-        <p className="drugsBrand-about"> АТХ: <span>{productDetail.anatomicalTherapeuticChemicalCode} - {productDetail.anatomicalTherapeuticChemicalName}</span></p>
+        <p className="drugsBrand-about"> Бренд: <span className="character">{productDetail.brandName}</span></p>
+        <p className="drugsBrand-about"> Производитель: <span className="character">{productDetail.manufacturerName}</span></p>
+        <p className="drugsBrand-about"> АТХ: <span className="character">{productDetail.anatomicalTherapeuticChemicalCode} - {productDetail.anatomicalTherapeuticChemicalName}</span></p>
       </div>
 
-      <ProductInstructions productSlug={slug} />
+      <ProductInstructions productSlug={slug} />  
     </>
   );
 }

@@ -5,6 +5,7 @@ import './index.css'
 import App from './App.jsx'
 import './media.css'
 import './style.css'
+import './newMedia.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

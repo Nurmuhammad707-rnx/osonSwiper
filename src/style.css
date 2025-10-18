@@ -6,6 +6,7 @@
 .bread_crumc {
     display: flex;
     align-items: center;
+    padding-top: 20px;
 
 }
 
@@ -246,9 +247,8 @@
 
 }
 
-.drugsBrand-about span {
+.character {
     margin-left: 120px;
-    /* chapdan masofa */
     color: #333;
     flex: 2;
     font-size: 16px;
@@ -454,6 +454,16 @@ table {
     font-family: "Montserrat", sans-serif;
 }
 
+.threeP_time {
+    font-size: 13px;
+    color: #333333;
+    font-weight: 450;
+    line-height: 140%;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+
+}
+
 .storePrice {
     color: #3873d3;
     font-size: 15px;
@@ -595,8 +605,56 @@ table {
     overflow: hidden;
     text-overflow: ellipsis;
     font-family: "Montserrat", sans-serif;
-    font-size: 14px !important;
-    font-weight: 500 !important;
+    font-size: 14px ;
+    font-weight: 500 ;
     line-height: 140%;
 
 }
+
+.storeLocation {
+    padding-left: 38px;
+    padding-top: 6px;
+
+}
+
+.storeTime {
+    display: flex;
+    gap: 15px;
+    padding-top: 18px;
+    padding-inline: 22px;
+}
+
+.storeInfo {
+    padding: 22px 16px 0px 22px;
+}
+
+.drugFlex_img {
+    width: 200px;
+
+}
+
+
+.drug-information,
+.drugs_wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.drugs_wrapper{
+    padding-left: 10px;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
