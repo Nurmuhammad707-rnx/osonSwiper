@@ -296,17 +296,18 @@
 }
 
   .secondHeader_icon{
-    width: 20px;
+    width: 26px;
     height: 20px;
   }
   .contact_information{
     line-height: 100%;
   }
   .language_icon{
-    font-size: 15px;
+    font-size: 18px;
+    margin: 0;
+    padding-left: 5px;
   }
   .ru_icon{
-    width: 60px;
-    height: 30px;
+    gap: 0;
   }
 }

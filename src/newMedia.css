@@ -271,7 +271,6 @@
 
     .onlyUzb {
         margin: 0;
-        margin-top: 5px;
         margin-bottom: 10px;
     }
 
@@ -285,7 +284,9 @@
     }
 
     .drugsInfo_share {
-        padding: 7px;
+        padding: 10px;
+        margin-left: 8px;
+        margin-right: 0;
     }
 
     .drugsInfo_wrapper {
@@ -329,5 +330,40 @@
     } */
     .storeInfo {
         padding-top: 15px;
+    }
+    .more_detail{
+        padding: 10px;
+    }
+    .add_button{
+        margin-top: 10px;
+    }
+    .drugs_price{
+        margin: 0;
+    }
+    .all_image {
+        width: 60px;
+        height: 60px;
+    }
+    .inUzbek, .search_drugs{
+        font-size: 17px;
+        font-weight: 600;
+    }
+    .popular{
+        font-size: 14px;
+        margin-left: 5px;
+    }
+    .a{
+        font-size: 14px;
+    }
+    .drugs_text{
+        font-size: 15px;
+        font-weight: 550;
+    }
+    .drugs_priceIn{
+        font-size: 15px;
+        font-weight: 650;
+    }
+    .drugs_priceIn, .drugs_price{
+        padding-top: 2px;
     }
 }
