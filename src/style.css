@@ -149,6 +149,7 @@
     padding-top: 32px;
     font-family: "Montserrat", sans-serif;
     border-bottom: 1px solid #91AAb8;
+    margin: 0;
 }
 
 
@@ -157,7 +158,7 @@
     font-size: 28px;
     line-height: 33px;
     margin: 0;
-    padding-top: 16px;
+    padding-top: 0;
     font-family: "Montserrat", sans-serif;
 
 }
@@ -317,8 +318,8 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 15px;
+    font-weight: 450;
     line-height: 150%;
     padding-top: 12px;
     font-family: "Montserrat", sans-serif;
@@ -605,8 +606,8 @@ table {
     overflow: hidden;
     text-overflow: ellipsis;
     font-family: "Montserrat", sans-serif;
-    font-size: 14px ;
-    font-weight: 500 ;
+    font-size: 14px;
+    font-weight: 500;
     line-height: 140%;
 
 }
@@ -640,21 +641,28 @@ table {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.drugs_wrapper{
+
+.drugs_wrapper {
     padding-left: 10px;
     margin: 0;
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+}
 
+::-webkit-scrollbar-thumb {
+    background: #d7d7d7;
+    border-radius: 10px;
+}
 
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+.language_icon{
+    font-size: 17px;
+}
 
-
-
-
-
-
-
-
-
-
-
+/* *{
+    border: 1px solid red;
+} */

@@ -71,7 +71,7 @@ const ProductInstructions = ({ slug }) => {
             </h2>
 
             <div className="menu" >
-                <ul style={{ listStyle: "none", padding: 0}}>
+                <ul style={{ listStyle: "none", padding: 0, margin:0}}>
                     <div className="instruction_way" onClick={() => scrollTo(sections.form)}>
                         <li>Форма выпуска</li>
                         <img src={angle_down} alt="Форма выпуска icon" />

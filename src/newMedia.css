@@ -366,4 +366,8 @@
     .drugs_priceIn, .drugs_price{
         padding-top: 2px;
     }
+    body{
+        padding:0;
+        
+    }
 }
