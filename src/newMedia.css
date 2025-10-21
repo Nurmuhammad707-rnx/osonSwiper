@@ -231,6 +231,9 @@
     .storeLocation{
         width: 70%;
     } */
+     .product-info{
+        width: 100%;
+     }
     .card_main {
         width: 90%;
     }
@@ -323,11 +326,9 @@
 
     .drugsButton-about {
         margin-left: 0;
+        margin-top: 50px;
     }
 
-    /* .swiper-slide {
-        width: ;
-    } */
     .storeInfo {
         padding-top: 15px;
     }
@@ -369,5 +370,9 @@
     body{
         padding:0;
         
+    }
+    .drugs_flex{
+        display: flex;
+        align-items: start;
     }
 }

@@ -80,7 +80,7 @@
     font-size: 18px;
     font-weight: 650;
     line-height: 140%;
-    width: 500px;
+    width: 100%;
   }
 
   .span_blu {
@@ -107,11 +107,12 @@
 
   .all_cards {
     width: 100%;
+    gap: 10px;
   }
 
   .bottom_FooterBottom {
     width: 90%;
-    align-items: start;
+    align-items: center;
   }
 
   .FooterBottom_rext {
