@@ -173,20 +173,3 @@ const ProductInstructions = ({ slug }) => {
 
 export default ProductInstructions;
 
-{/* {instructions.length === 0 ? (
-    <p>Ma’lumot topilmadi</p>
-) : (
-    instructions.map((item, i) => (
-        <div key={i} className="instruction-item">
-            <h3 className="instruction_title">{item.title}</h3>
-            <div
-                dangerouslySetInnerHTML={{
-                    __html: item.description
-                        .replace(/<p(\s*)>/g, '<p class="instruction_p">')
-                        .replace(/<div(\s*)>/g, '<div class="instruction_div">')
-                }}
-            />
-
-        </div>
-    ))
-)} */}

@@ -4,310 +4,401 @@
     width: 100%;
     margin-top: 0;
   }
+
   .swiper-slide {
     margin-right: 0;
   }
 }
-@media (max-width: 768px){
-  .container{
+
+@media (max-width: 768px) {
+  .container {
     margin: 0;
     /* padding: 10px; */
   }
-    .main_text{
-      font-size: 26px;
-      font-weight: 600;
-    }
-    .drugSearch_region{
-      font-size: 20px;
-      font-weight: 500;
-    }
-    .about_product{
-        width: 200px;
-    }
-    .swiper-slide{
-        width: 200px;
-        margin-right: 0;
-    }
-    .swiper-slide.active{
-      width: 200px;
-      margin-right: 0;
-    }
-    .add_text-info{
-      font-size: 24px;
-      font-weight: 700;
 
-    }
-    .span_blu{
-      font-size: 27px;
-    }    
-    .first_footer-about,
-    .main_middleFooter-text,
-    .LastBottom_title,
-    .FooterBottom_title{
-      font-size: 21px;
-      font-weight: 600; 
-    }
-    .contactMain_info{
-      display: block;
-    }
-    .map_contact{
-      width: 100%;
-      height: 400px;
-    }
-  .hand_phone{
+  .main_text {
+    font-size: 26px;
+    font-weight: 600;
+  }
+
+  .drugSearch_region {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .about_product {
+    width: 200px;
+  }
+
+  .swiper-slide {
+    width: 200px;
+    margin-right: 0;
+  }
+
+  .swiper-slide.active {
+    width: 200px;
+    margin-right: 0;
+  }
+
+  .add_text-info {
+    font-size: 24px;
+    font-weight: 700;
+
+  }
+
+  .span_blu {
+    font-size: 27px;
+  }
+
+  .first_footer-about,
+  .main_middleFooter-text,
+  .LastBottom_title,
+  .FooterBottom_title {
+    font-size: 21px;
+    font-weight: 600;
+  }
+
+  .contactMain_info {
+    display: block;
+  }
+
+  .map_contact {
+    width: 100%;
+    height: 400px;
+  }
+
+  .hand_phone {
     display: none;
   }
-  .add_main{
+
+  .add_main {
     padding: 12px;
     height: 100px;
   }
-  .add_text-info{
+
+  .add_text-info {
     font-size: 18px;
     font-weight: 650;
     line-height: 140%;
     width: 500px;
   }
-  .span_blu{
+
+  .span_blu {
     font-size: 18px;
   }
-  .two_images{
+
+  .two_images {
     display: block;
-    margin-left:-20px;
+    margin-left: -20px;
   }
-  .first_footer-about{
+
+  .first_footer-about {
     font-size: 22px;
-    font-weight:650;
+    font-weight: 650;
   }
-  .footer_first{
+
+  .footer_first {
     font-size: 14px;
   }
-  .main_search{
+
+  .main_search {
     width: 90%;
   }
-  .all_cards{
+
+  .all_cards {
     width: 100%;
   }
-  .bottom_FooterBottom{
+
+  .bottom_FooterBottom {
     width: 90%;
     align-items: start;
   }
-  .FooterBottom_rext{
+
+  .FooterBottom_rext {
+    font-size: 14px;
     margin-top: 10px;
     display: flex;
     align-items: center;
   }
-  ._icon{
+
+  ._icon {
     width: 40px;
     height: 40px;
   }
 }
-@media (max-width: 530px){
-    .bottom_FooterBottom{
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
-  .all_cards{
+
+@media (max-width: 600px) {
+  .FooterBottom_rext {
+    font-size: 14px;
+  }
+  .js-slide-img{
+    height: 140px;
+  }
+}
+
+@media (max-width: 530px) {
+  .bottom_FooterBottom {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .all_cards {
     display: block;
 
   }
-  .FooterLast{
+
+  .FooterLast {
     display: block;
   }
-  .list_about-text{
+
+  .list_about-text {
     width: 100%;
   }
-  .FooterLast{
+
+  .FooterLast {
     display: block;
   }
-  .lastBottom_lists{
+
+  .lastBottom_lists {
     max-width: 100%;
   }
-  .FooterBottom_rext{
+
+  .FooterBottom_rext {
     font-size: 13px;
     line-height: 150%;
   }
-  .FooterBottom_bottom-text{
+
+  .FooterBottom_bottom-text {
     font-size: 14px;
     line-height: 150%;
   }
-  .about_product{
+
+  .about_product {
     width: 170px;
   }
-  .container{
+
+  .container {
     width: 100%;
   }
-  body{
-  margin: 0;
-  padding: 5px;
-  background: white;
+
+  body {
+    margin: 0;
+    padding: 5px;
+    background: white;
   }
-   .header{
+
+  .header {
     padding: 16px;
     width: 93%;
   }
-  .for_button{
+
+  .for_button {
     width: 100px;
     height: 36px;
   }
+
   footer:empty {
-  display: none;
-}
-.add_text-info{
-  width: 90%;
-  font-size: 16px;
-  font-weight: 650;
-  line-height: 140%;
-}
-.span_blu{
-  font-size: 14px;
-  line-height: 0;
-}
-.two_images{
-  width: auto;
-}
-.product_name{
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.product_price {
-  margin-top: 13%;
+    display: none;
+  }
+
+  .add_text-info {
+    font-size: 16px;
+    font-weight: 650;
+    line-height: 140%;
+  }
+
+  .span_blu {
+    font-size: 16px;
+    line-height: 0;
+  }
+
+  .two_images {
+    width: auto;
+  }
+
+  .product_name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .product_price {
+    margin-top: 13%;
+  }
+
+  .drugSearch_region {
+    text-align: center;
+  }
+
+  .first_word,
+  .second_word {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .main_search {
+    width: 87%;
+  }
+
+  .first_footer-about {
+    margin-top: 45px;
+  }
+
+  .FooterBottom_rext {
+    width: 90%;
+    margin-top: 20px;
+    justify-content: start;
+  }
+
+  .header {
+    padding: 0;
+    width: 100%;
+  }
+
+  .footer_info {
+    align-items: start;
+  }
+
+  .middle_footer-img {
+    margin-top: 10px;
+  }
+
+  .list_about-text {
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .add_main {
+    width: 94%;
+  }
+  .products_jsx{
+    margin-top: 0;
+  }
+  .top_name{
+    font-size: 17px;
+  }
 }
 
-.drugSearch_region{
-  display: block;
-  text-align: center;
-}
-.first_word,
-.second_word{
-  font-size: 16px;
-  font-weight: 600;
-}
-.main_search{
-  width: 87%;
-}
-.first_footer-about{
-  margin-top: 45px;
-}
-.FooterBottom_rext{
-  width: 90%;
-  margin-top: 20px;
-  justify-content: start;
-}
-.header{
-  padding: 0;
-  width: 100%;
-}
-.footer_info{
-  align-items: start;
-}
-.middle_footer-img{
-  margin-top: 10px;
-}
-.list_about-text{
-  font-size: 15px;
-  font-weight: 400;
-}
-.add_main{
-  width: 94%;
-}
-}
-@media (max-width: 400px){
-  .header{
+@media (max-width: 400px) {
+  .drugSearch_region{
+    display: block;
+  }
+  .header {
     padding: 16px;
     width: 93%;
   }
-  .for_button{
+
+  .for_button {
     width: 100px;
     height: 36px;
   }
+
   footer:empty {
-  display: none;
-}
-.add_text-info{
-  width: 90%;
-  font-size: 16px;
-  font-weight: 650;
-  line-height: 140%;
-}
-.span_blu{
-  font-size: 14px;
-  line-height: 0;
-}
-.two_images{
-  width: auto;
-}
-.product_name{
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.product_price {
-  margin-top: 13%;
-}
+    display: none;
+  }
 
-.drugSearch_region{
-  display: block;
-  text-align: center;
-}
-.first_word,
-.second_word{
-  font-size: 16px;
-  font-weight: 600;
-}
-.main_search{
-  width: 87%;
-}
-.first_footer-about{
-  margin-top: 45px;
-}
-.FooterBottom_rext{
-  width: 90%;
-  margin-top: 20px;
-  justify-content: start;
-}
-.header{
-  padding: 0;
-  width: 100%;
-}
-.footer_info{
-  align-items: start;
-}
-.middle_footer-img{
-  margin-top: 10px;
-}
-.list_about-text{
-  font-size: 15px;
-  font-weight: 400;
-}
-.contactMain_title{
-  margin-top: 30px;
-  font-size: 18px;
-  line-height: 100%;
-  font-weight: 600;
-}
-.contact_header-phone{
-  display: none;
-}
-.contact_header-logo{
-  width: 110px;
-  height: 50px;
-}
+  .add_text-info {
+    width: 90%;
+    font-size: 16px;
+    font-weight: 650;
+    line-height: 140%;
+  }
 
-  .secondHeader_icon{
+  .span_blu {
+    font-size: 14px;
+    line-height: 0;
+  }
+
+  .two_images {
+    width: auto;
+  }
+
+  .product_name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .product_price {
+    margin-top: 13%;
+  }
+
+  .drugSearch_region {
+    display: block;
+    text-align: center;
+  }
+
+  .first_word,
+  .second_word {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .main_search {
+    width: 87%;
+  }
+
+  .first_footer-about {
+    margin-top: 45px;
+  }
+
+  .FooterBottom_rext {
+    width: 90%;
+    margin-top: 20px;
+    justify-content: start;
+  }
+
+  .header {
+    padding: 0;
+    width: 100%;
+  }
+
+  .footer_info {
+    align-items: start;
+  }
+
+  .middle_footer-img {
+    margin-top: 10px;
+  }
+
+  .list_about-text {
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .contactMain_title {
+    margin-top: 30px;
+    font-size: 18px;
+    line-height: 100%;
+    font-weight: 600;
+  }
+
+  .contact_header-phone {
+    display: none;
+  }
+
+  .contact_header-logo {
+    width: 110px;
+    height: 50px;
+  }
+
+  .secondHeader_icon {
     width: 26px;
     height: 20px;
   }
-  .contact_information{
+
+  .contact_information {
     line-height: 100%;
   }
-  .language_icon{
+
+  .language_icon {
     font-size: 18px;
     margin: 0;
     padding-left: 5px;
   }
-  .ru_icon{
+
+  .ru_icon {
     gap: 0;
   }
 }

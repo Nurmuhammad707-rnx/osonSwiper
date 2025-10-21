@@ -5,13 +5,13 @@ import "swiper/css";
 
 import next_icon from "../assets/drugs/next_icon.svg";
 import angle_right from "../assets/drugs/angle-right.svg";
-import useProductStore from "../Store/productStore"; 
+import useProductStore from "../Store/productStore";
 
 function Products() {
   const { products, getProducts, loading, error } = useProductStore();
 
   useEffect(() => {
-    
+
     getProducts();
   }, [getProducts]);
 
@@ -37,14 +37,16 @@ function Products() {
           breakpoints={{
             300: { slidesPerView: 2, spaceBetween: 40 },
             400: { slidesPerView: 2, spaceBetween: 40 },
-            530: { slidesPerView: 2, spaceBetween: 30 },
+            500: { slidesPerView: 2.5, spaceBetween: 50 },
+            530: { slidesPerView: 2.5, spaceBetween: 50 },
+            600: { slidesPerView: 2.5, spaceBetween: 50 },
             640: { slidesPerView: 2, spaceBetween: 20 },
             700: { slidesPerView: 3.5, spaceBetween: 60 },
             768: { slidesPerView: 4, spaceBetween: 40 },
           }}
         >
           {products.map((p) =>
-          
+
             p.slug ? (
               <SwiperSlide key={p.slug}>
                 <NavLink
