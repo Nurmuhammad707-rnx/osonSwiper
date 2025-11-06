@@ -659,10 +659,182 @@ table {
 ::-webkit-scrollbar-track {
     border-radius: 10px;
 }
-.language_icon{
+
+.language_icon {
     font-size: 17px;
 }
 
-/* *{
-    border: 1px solid red;
-} */
+
+
+.region_modal {
+    /* position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 1000;
+    width: 320px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 8px; */
+
+    max-width: 500px;
+    background-color: #fff;
+    box-shadow: 0 50px 150px #0d1c3540;
+    min-width: 320px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+.modal_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.modal_header h3 {
+    color: #333;
+    font-size: 22px;
+    margin: 0;
+    font-weight: 450;
+}
+
+.modal_overlay {
+    align-items: center;
+    background-color: #00000026;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 99;
+}
+
+.close_btn {
+    align-items: center;
+    display: flex;
+    font-size: 34px;
+    height: 40px;
+    justify-content: center;
+    width: 40px;
+    background: #fff;
+    border: 1px solid #d9dbe1;
+    color: #333 !important;
+    border-radius: 10px;
+    padding: 0 12px;
+}
+
+.regionItem_wrapper {
+    margin-bottom: 20px;
+    max-height: 75vh;
+    overflow: auto;
+    padding-inline: 20px;
+}
+
+.in_regionItem {
+    height: 100%;
+    max-height: 65vh;
+}
+
+.uzbekistan {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.uzbekistan span {
+    margin-left: 8px;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+}
+
+.viloyat {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    margin-bottom: 8px;
+}
+
+.viloyat span {
+    margin-left: 8px;
+}
+
+.viloyat img {
+    width: 16px;
+    height: 16px;
+}
+
+.btn_viloyat {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 12px;
+    height: 42px;
+}
+
+.region_actions {
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+    padding-inline: 20px;
+    padding-bottom: 20px;
+}
+
+.reset_btn {
+    background: #ff5252;
+}
+
+.confirm_btn {
+    background-image: linear-gradient(270.12deg, #3f74d1 .13%, #5b96e7 99.94%);
+    margin-left: 20px !important;
+}
+
+.confirm_btn,
+.reset_btn {
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    height: 42px;
+    padding: 0 12px;
+}
+
+.region_item {
+    display: flex;
+    align-items: center;
+}
+
+.drugsearch_div {
+    font-size: 18px;
+}
+
+.show_region {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px #00000014;
+    margin-top: 20px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.language_switcher {
+    position: relative;
+    height: 38px;
+}
+
+.language_switcher .ru_icon {
+    transition: all 0.3s ease;
+}

@@ -1,6 +1,6 @@
 // src/store/productStore.js
 import { create } from "zustand";
-import { fetchProducts, fetchProductDetail,fetchInstructions, fetchProductStores } from "../services/productService";   
+import { fetchProducts, fetchProductDetail, fetchInstructions, fetchProductStores } from "../services/productService";
 
 const useProductStore = create((set) => ({
   products: [],
@@ -11,17 +11,27 @@ const useProductStore = create((set) => ({
   loading: false,
   error: null,
 
+  selectedRegions: [1],
+  setSelectedRegions: (regions) => set({ selectedRegions: regions }),
+
+  setStores: (newStores) => set((state) => ({ ...state, stores: newStores })),
+
   // 🔹 Popular products
   getProducts: async (page = 1) => {
+    const { selectedRegions } = useProductStore.getState();
     set({ loading: true, error: null });
+
     try {
-      const data = await fetchProducts(page, 20);
-      console.log("API response:", data);
+      const data = await fetchProducts(page, 20, selectedRegions.length ? selectedRegions : [1]);
+      console.log("📦 API response:", data);
       set({ products: data?.items || [], loading: false });
     } catch (err) {
+      console.error("❌ getProducts error:", err);
       set({ error: err.message, loading: false });
     }
   },
+
+
 
 
   // 🔹 Product detail   //hato mashetta
@@ -63,14 +73,28 @@ const useProductStore = create((set) => ({
 
 
 
-// bu eng keregi
+  // bu eng keregi
 
-  getProductStores: async (slug, quantity = 0) => {
+  // getProductStores: async (slug, quantity = 0) => {
+  //   set((state) => ({ ...state, loading: true, error: null }));
+  //   try {
+
+  //     const res = await fetchProductStores(slug, quantity);
+
+  //     const items = res?.data?.items || [];
+
+  //     set((state) => ({ ...state, stores: Array.isArray(items) ? items : [] }));
+  //     return res;
+  //   } catch (err) {
+  //     set((state) => ({ ...state, error: err.message }));
+  //   } finally {
+  //     set((state) => ({ ...state, loading: false }));
+  //   }
+  // },
+  getProductStores: async (slug, quantity = 0, sortType = null, location = null) => {
     set((state) => ({ ...state, loading: true, error: null }));
     try {
-
-      const res = await fetchProductStores(slug, quantity);
-
+      const res = await fetchProductStores(slug, quantity, sortType, location);
       const items = res?.data?.items || [];
 
       set((state) => ({ ...state, stores: Array.isArray(items) ? items : [] }));
@@ -80,7 +104,7 @@ const useProductStore = create((set) => ({
     } finally {
       set((state) => ({ ...state, loading: false }));
     }
-  },
+  }
 
 
 

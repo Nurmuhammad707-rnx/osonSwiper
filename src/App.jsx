@@ -1,4 +1,3 @@
-
 import { Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Contact from "./Pages/Contact";
@@ -7,23 +6,34 @@ import ProductDetail from "./Pages/ProductDetail";
 import StorePrice from "./Pages/StorePrice";
 import Spinner from "./Components/Spinner";
 import useProductStore from "./Store/productStore";
+import SearchPage from "./Pages/SearchPage";
+import { LanguageProvider } from "./language/LanguageContext.jsx";
+// import { CarouselProvider } from "./language/CarouselContext.jsx";
+
+
 
 function App() {
     const loading = useProductStore((state) => state.loading);
+
     return (
-        <div className="container">
-            <div className="page_wrapper">
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/allProduct" element={<All />} />
-                    <Route path="/product/:slug" element={<ProductDetail />} />
-                    <Route path="/storePrice" element={<StorePrice />} />
-                    <Route path="/storePrice/:slug" element={<StorePrice />} />
-                </Routes>
-                {loading && <Spinner />}
-            </div>
-        </div>
+        <LanguageProvider>
+            {/* <CarouselProvider> */}
+                <div className="container">
+                    <div className="pagew_wrapper">
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/contact" element={<Contact />} />
+                            <Route path="/allProduct" element={<All />} />
+                            <Route path="/product/:slug" element={<ProductDetail />} />
+                            <Route path="/storePrice" element={<StorePrice />} />
+                            <Route path="/storePrice/:slug" element={<StorePrice />} />
+                            <Route path="/search" element={<SearchPage />} />
+                        </Routes>
+                        {loading && <Spinner />}
+                    </div>
+                </div>
+            {/* </CarouselProvider> */}
+        </LanguageProvider>
     );
 }
 

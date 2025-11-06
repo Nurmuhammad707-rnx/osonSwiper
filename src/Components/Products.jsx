@@ -3,17 +3,19 @@ import { NavLink } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
+import { useLanguage } from "../language/LanguageContext";
+
 import next_icon from "../assets/drugs/next_icon.svg";
 import angle_right from "../assets/drugs/angle-right.svg";
 import useProductStore from "../Store/productStore";
 
 function Products() {
-  const { products, getProducts, loading, error } = useProductStore();
+  const { products, getProducts, loading, error, selectedRegions } = useProductStore();
+  const { language, setLanguag } = useLanguage()
 
   useEffect(() => {
-
     getProducts();
-  }, [getProducts]);
+  }, [selectedRegions]);
 
   if (loading) return <p>Yuklanmoqda...</p>;
   if (error) return <p>Xatolik: {error}</p>;
@@ -21,10 +23,15 @@ function Products() {
   return (
     <div className="products_jsx">
       <div className="headerText_btn">
-        <h1 className="top_name">Популярные товары</h1>
+        <h1 className="top_name">
+          {language === "RU" ? "Популярные товары" : "Ommabop mahsulotlar"}
+
+
+        </h1>
         <button className="all">
           <NavLink className="all_button" to="/allProduct">
-            Все
+            {language === "RU" ? 'Все' : "Hammasi"}
+            
           </NavLink>
           <img src={next_icon} alt="" className="next_img" />
         </button>
@@ -67,7 +74,9 @@ function Products() {
                       </h3>
                       <div className="icon_price">
                         <h2 className="product_price">
-                          от {p.minPrice?.toLocaleString() || "0"} сум
+                          {language === "RU"
+                            ? `от ${p.minPrice?.toLocaleString() || "0"} сум`
+                            : ` ${p.minPrice?.toLocaleString() || "0"} so‘mdan`}
                         </h2>
                         <img src={angle_right} alt="" className="angle" />
                       </div>

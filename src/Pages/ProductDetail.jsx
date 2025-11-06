@@ -11,6 +11,9 @@ import phone_icon from "../assets/phone_icon.svg";
 import main_logo from "../assets/apteka_main-logo.svg";
 import ru_icon from "../assets/ru_icon.svg";
 import angle_right from '../assets/drugs/angle-right.svg'
+import uz_icon from "../assets/uz_icon.svg"
+
+
 
 
 
@@ -19,7 +22,13 @@ function ProductDetail() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { loading, error, getProductDetail, getInstructions, productDetail } = useProductStore();
   const [productName, setProductName] = useState('')
+  const [showAlt, setShowAlt] = useState(false);
+  const [language, setLanguage] = useState("RU");
 
+  const toggleLanguage = () => {
+    setLanguage(prev => (prev === "RU" ? "UZ" : "RU"));
+    setShowAlt(false);
+  };
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -73,10 +82,27 @@ function ProductDetail() {
         <div className="main_logo">
           <NavLink to="/"><img src={main_logo} alt="" /></NavLink>
         </div>
-        <button className="ru_icon">
-          <img src={ru_icon} alt="" className="secondHeader_icon" />
-          <h3 className="language_icon">РУ</h3>
-        </button>
+        <div className="language_switcher">
+          <button className="ru_icon" onClick={() => setShowAlt(!showAlt)}>
+            <img
+              src={language === "RU" ? ru_icon : uz_icon}
+              alt=""
+              className="secondHeader_icon"
+            />
+            <h3 className="language_icon">{language}</h3>
+          </button>
+
+          {showAlt && (
+            <button className="ru_icon" onClick={toggleLanguage}>
+              <img
+                src={language === "RU" ? uz_icon : ru_icon}
+                alt=""
+                className="secondHeader_icon"
+              />
+              <h3 className="language_icon">{language === "RU" ? "UZ" : "RU"}</h3>
+            </button>
+          )}
+        </div>
       </header>
 
 
@@ -100,7 +126,7 @@ function ProductDetail() {
       <h2 className="instruction_main-titlee">Oson Apteka - Справочная аптек</h2>
       <div className="product-detail">
         <div className="drugs_flex">
-          <img className="drugFlex_img" src={productDetail.imageURI} alt={productDetail.productFullName || "Dori"}  />
+          <img className="drugFlex_img" src={productDetail.imageURI} alt={productDetail.productFullName || "Dori"} />
           <div>
             <h2 className="drugsDetail-name">{productDetail.productFullName || productDetail.productName}</h2>
             <p className="drugsDetail-price">от {productDetail.minPrice?.toLocaleString()} so‘m</p>
@@ -118,7 +144,7 @@ function ProductDetail() {
         <p className="drugsBrand-about"> АТХ: <span className="character">{productDetail.anatomicalTherapeuticChemicalCode} - {productDetail.anatomicalTherapeuticChemicalName}</span></p>
       </div>
 
-      <ProductInstructions productSlug={slug} />  
+      <ProductInstructions productSlug={slug} />
     </>
   );
 }

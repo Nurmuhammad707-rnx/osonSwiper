@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { NavLink } from 'react-router-dom';
+import useProductStore from "../Store/productStore";
+
 
 import drug_picture from '../assets/drugs/drug_1.png';
 import button_icon from "../assets/menuIcon.svg";
@@ -13,8 +15,10 @@ import Breadcrumb from './BreadCrumb';
 import eye_icon from '../assets/eye_icon.svg';
 import icon_all from '../assets/icon_all.svg';
 import angle_down from '../assets/bottom_angle.svg'
+import DrugsSearch from "../Components/DrugsSearch";
 
-
+import uz_icon from "../assets/uz_icon.svg"
+import { useLanguage } from "../language/LanguageContext";
 
 function All() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,6 +26,15 @@ function All() {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);
+  const { selectedRegions } = useProductStore();
+  const { language, setLanguage } = useLanguage();
+  const [showAlt, setShowAlt] = useState(false);
+
+  const toggleLanguage = () => {
+    setLanguage(prev => (prev === "RU" ? "UZ" : "RU"));
+    setShowAlt(false);
+  };
+
 
   const fetchProducts = async (pageNumber) => {
     try {
@@ -35,7 +48,8 @@ function All() {
           orderBy: "productName",
           orderDesc: true,
           showOnlyExistOnStore: true,
-          regionList: [1]
+          regionList: selectedRegions.length ? selectedRegions : [1]
+
         },
         {
           headers: {
@@ -45,15 +59,15 @@ function All() {
         }
       );
       console.log('api jovob', response.data)
-      const newItems = response.data.data.items;
+      const newItems = response.data.data.items || [];
+
+      setProducts(prev => pageNumber === 1 ? newItems : [...prev, ...newItems]);
 
       if (newItems.length < 20) {
-        console.warn("API bo‘sh ma’lumot qaytardi yoki format o‘zgargan");
         setHasMore(false);
-        return;
       }
 
-      setProducts(prev => [...prev, ...newItems]);
+
     } catch (error) {
       console.error("API xatosi:", error);
     } finally {
@@ -61,9 +75,21 @@ function All() {
     }
   };
 
+
   useEffect(() => {
-    fetchProducts(page);
+    setProducts([]);
+    setPage(1);
+    fetchProducts(1); // ✅ region o‘zgarganda darhol chaqilsin
+  }, [selectedRegions]);
+
+
+  useEffect(() => {
+    if (page !== 1) {
+      fetchProducts(page);
+    }
   }, [page]);
+
+
 
   const handleLoadMore = () => {
     if (hasMore) {
@@ -106,14 +132,38 @@ function All() {
             </NavLink>
           </nav>
         </div>
-        <button className="ru_icon">
-          <img src={ru_icon} alt="" className="secondHeader_icon" />
-          <h3 className="language_icon">РУ</h3>
-        </button>
+        <div className="language_switcher">
+          <button className="ru_icon" onClick={() => setShowAlt(!showAlt)}>
+            <img
+              src={language === "ru" ? ru_icon : uz_icon}
+              alt=""
+              className="secondHeader_icon"
+            />
+            <h3 className="language_icon">{language.toUpperCase()}</h3> {/* ekranda katta ko‘rinadi */}
+          </button>
+
+          {showAlt && (
+            <button className="ru_icon" onClick={toggleLanguage}>
+              <img
+                src={language === "ru" ? uz_icon : ru_icon}
+                alt=""
+                className="secondHeader_icon"
+              />
+              <h3 className="language_icon">{language === "ru" ? "UZ" : "RU"}</h3>
+            </button>
+          )}
+        </div>
+
       </header>
 
       <Breadcrumb />
-      <div className="country_druge">
+      <div className="show_region">
+        <div className="drugsearch_div">
+          <DrugsSearch />
+        </div>
+      </div>
+
+      {/* <div className="country_druge">
         <div>
           <p className="search_drugs">Искать препараты:</p>
         </div>
@@ -121,7 +171,7 @@ function All() {
           <p className="onlyUzb">По всему Узбекистану </p>
           <img src={angle_down} alt="" />
         </div>
-      </div>
+      </div> */}
 
 
 
@@ -138,7 +188,10 @@ function All() {
             <div className="drugs_textAndPrice">
               <h3 className="drugs_text">{product?.productName}</h3>
               <p className="drugs_price">
-                от&nbsp;<span className='drugs_priceIn'>{product?.minPrice?.toLocaleString()} сум</span>
+                {/* от&nbsp;<span className='drugs_priceIn'>{product?.minPrice?.toLocaleString()} сум</span> */}
+                {language === "RU"
+                  ? `от ${product?.minPrice?.toLocaleString() || "0"} сум`
+                  : ` ${product?.minPrice?.toLocaleString() || "0"} so‘mdan`}
               </p>
             </div>
           </div>
@@ -148,7 +201,10 @@ function All() {
               <NavLink
                 to={`/product/${product.slug}`}
                 style={{ textDecoration: "none", color: "inherit" }}>
-                <p className="add_text"> Подробнее</p>
+                <p className="add_text">
+                  {language === "RU" ? "Подробнее" : " Batafsil"}
+
+                </p>
               </NavLink>
 
             </div>
@@ -156,7 +212,10 @@ function All() {
               <img src={icon_all} alt="" className="add_icon" />
 
               <NavLink to={`/storePrice/${product.slug}`}>
-                <button className="add_text">Цена в аптеках</button>
+                <button className="add_text">
+                  {language === "RU" ? "Цена в аптеках" : " Dorixonalardagi narx"}
+
+                </button>
               </NavLink>
             </div>
           </div>
