@@ -33,7 +33,8 @@ import distance from "../assets/distance.svg"
 
 function StorePrice() {
   const { slug } = useParams();
-  const { stores, setStores, getProductStores, loading } = useProductStore();
+  const { stores, setStores, getProductStores, loading, selectedRegions } = useProductStore();
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [count, setCount] = useState(0);
   const [page, setPage] = useState(1)
@@ -44,7 +45,7 @@ function StorePrice() {
   const [showAlt, setShowAlt] = useState(false);
 
   const toggleLanguage = () => {
-    setLanguage(prev => (prev === "ru" ? "uz" : "ru"));
+    setLanguage(prev => (prev === "RU" ? "UZ" : "RU"));
     setShowAlt(false);
   };
 
@@ -77,9 +78,10 @@ function StorePrice() {
       if (Array.isArray(selectedDrugs) && selectedDrugs.length > 0) {
         for (const drug of selectedDrugs) {
           if (!drug?.slug) continue;
-          const data = await getProductStores(drug.slug, 0, buttonType, location, language); // 🆕 language uzatildi
+          const data = await getProductStores(drug.slug, 0, buttonType, location, language);
           const items = data?.data?.items || [];
           allItems.push(...items);
+
         }
         setStores(allItems);
         setCount(allItems.length);
@@ -87,10 +89,11 @@ function StorePrice() {
       }
 
       if (slug) {
-        const data = await getProductStores(slug, 0, buttonType, location, language); // 🆕 language uzatildi
+        const data = await getProductStores(slug, 0, buttonType, location, language);
         const items = data?.data?.items || [];
         setStores(items);
         setCount(items.length);
+
       }
     } catch (err) {
       console.error("Saralashda xato:", err);
@@ -117,6 +120,8 @@ function StorePrice() {
     });
   };
 
+
+
   useEffect(() => {
     setPage(1);
   }, [activeButton]);
@@ -133,10 +138,9 @@ function StorePrice() {
           for (const drug of selectedDrugs) {
             if (!drug?.slug) continue;
 
-            const data = await getProductStores(drug.slug, 0, activeButton, location, language);
+            const data = await getProductStores(drug.slug, 0, activeButton, location, language, selectedRegions);
 
             const items = data?.data?.items || [];
-
             allItems.push(...items);
 
             if (!firstProductName && items.length > 0) {
@@ -152,11 +156,6 @@ function StorePrice() {
 
         if (slug) {
           const data = await getProductStores(slug, 0, activeButton, location, language);
-
-
-
-
-
           const items = data?.data?.items || [];
           const productName = items[0]?.productList?.[0]?.productName || "";
 
@@ -164,15 +163,66 @@ function StorePrice() {
           setCount(items.length);
           setStores(items);
         }
+
       } catch (error) {
         console.error("Xato bor", error);
-
       }
     };
 
     loadData();
-  }, [slug, selectedDrugs?.length, page, activeButton, getProductStores, language]);
+  }, [slug, selectedDrugs?.length, page, activeButton, getProductStores, language, selectedRegions]);
 
+  // useEffect(() => {
+  //   const loadData = async () => {
+  //     try {
+  //       const location = await getUserLocation();
+  //       let allItems = [];
+  //       let firstProductName = "";
+
+  //       if (Array.isArray(selectedDrugs) && selectedDrugs.length > 0) {
+  //         for (const drug of selectedDrugs) {
+  //           if (!drug?.slug) continue;
+
+  //           const data = await getProductStores(drug.slug, 0, activeButton, location, language);
+
+
+  //           const items = data?.data?.items || [];
+
+  //           allItems.push(...items);
+
+  //           if (!firstProductName && items.length > 0) {
+  //             firstProductName = items[0]?.productList?.[0]?.productName || "";
+  //           }
+  //         }
+
+  //         setProductName(firstProductName);
+  //         setCount(allItems.length);
+  //         setStores(allItems);
+  //         return;
+  //       }
+
+  //       if (slug) {
+  //         const data = await getProductStores(slug, 0, activeButton, location, language);
+
+
+
+
+
+  //         const items = data?.data?.items || [];
+  //         const productName = items[0]?.productList?.[0]?.productName || "";
+
+  //         setProductName(productName);
+  //         setCount(items.length);
+  //         setStores(items);
+  //       }
+  //     } catch (error) {
+  //       console.error("Xato bor", error);
+
+  //     }
+  //   };
+
+  //   loadData();
+  // }, [slug, selectedDrugs?.length, page, activeButton, getProductStores, language]);
 
 
   // useEffect(() => {
@@ -281,7 +331,7 @@ function StorePrice() {
         <div className="language_switcher">
           <button className="ru_icon" onClick={() => setShowAlt(!showAlt)}>
             <img
-              src={language === "ru" ? ru_icon : uz_icon}
+              src={language === "RU" ? ru_icon : uz_icon}
               alt=""
               className="secondHeader_icon"
             />
@@ -295,7 +345,7 @@ function StorePrice() {
                 alt=""
                 className="secondHeader_icon"
               />
-              <h3 className="language_icon">{language === "ru" ? "UZ" : "RU"}</h3>
+              <h3 className="language_icon">{language === "RU" ? "UZ" : "RU"}</h3>
             </button>
           )}
         </div>
@@ -322,12 +372,20 @@ function StorePrice() {
 
 
       <div className="button_info">
-        <h1 className="pharmacy_count">Найдено <strong className="pharmacy_count">{count}</strong> результат (a)</h1>
+        <h1 className="pharmacy_count">
+          {language === "RU"
+            ? <>Найдено <strong className="pharmacy_count">{count}</strong> результат(а)</>
+            : <>{count} ta natija(lar) topildi</>
+          }
+        </h1>
+
         <div className="inButton">
           <button className="filter_button">
             <div className="one">1</div>
             <img src={filter} alt="" className="buttonIn_img" />
-            <p className="buttonIn_name"> Фильтр</p>
+            <p className="buttonIn_name"> 
+              {language === "RU" ? "Фильтр" : "Filtr"}
+            </p>
 
           </button>
         </div>
@@ -344,13 +402,15 @@ function StorePrice() {
           className={`cheap ${activeButton === 'cheap' ? 'active' : ''}`}
           onClick={() => handleButtonClick('cheap')}
         >
-          Дешевле
+          {language === "RU" ? "Дешевле" : "Arzonroq"}
+
         </button>
         <button
           className={`near ${activeButton === 'distance' ? 'active' : ''}`}
           onClick={() => handleButtonClick('distance')}
         >
-          Ближе
+
+          {language === "RU" ? "Ближе" : "Yaqinroq"}
         </button>
       </div>
 
@@ -387,11 +447,11 @@ function StorePrice() {
                   </div>
 
                   <p className="threeP">
-                    {language === "uz" ? "Mo‘ljal" : "Ориентир"}: {store.landmark}
+                    {language === "UZ" ? "Mo‘ljal" : "Ориентир"}: {store.landmark}
                   </p>
 
                   <p className="threeP">
-                    {language === "uz" ? "Manzil" : "Адрес"}: {store.address}
+                    {language === "UZ" ? "Manzil" : "Адрес"}: {store.address}
                   </p>
 
                 </div>
@@ -476,8 +536,8 @@ function StorePrice() {
 
             {/* </div> */}
           </div>
-          {i === 0 && <ImageSlider language={language} />
-          }
+          {i === 0 && <ImageSlider key={language} language={language} />}
+
         </React.Fragment>
       ))}
 

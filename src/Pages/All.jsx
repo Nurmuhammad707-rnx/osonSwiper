@@ -139,7 +139,7 @@ function All() {
               alt=""
               className="secondHeader_icon"
             />
-            <h3 className="language_icon">{language.toUpperCase()}</h3> {/* ekranda katta ko‘rinadi */}
+            <h3 className="language_icon">{language.toUpperCase()}</h3> 
           </button>
 
           {showAlt && (
@@ -163,15 +163,6 @@ function All() {
         </div>
       </div>
 
-      {/* <div className="country_druge">
-        <div>
-          <p className="search_drugs">Искать препараты:</p>
-        </div>
-        <div className="inUzbek">
-          <p className="onlyUzb">По всему Узбекистану </p>
-          <img src={angle_down} alt="" />
-        </div>
-      </div> */}
 
 
 

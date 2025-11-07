@@ -66,35 +66,11 @@ const useProductStore = create((set) => ({
 
 
 
-
-
-
-
-
-
-
-  // bu eng keregi
-
-  // getProductStores: async (slug, quantity = 0) => {
-  //   set((state) => ({ ...state, loading: true, error: null }));
-  //   try {
-
-  //     const res = await fetchProductStores(slug, quantity);
-
-  //     const items = res?.data?.items || [];
-
-  //     set((state) => ({ ...state, stores: Array.isArray(items) ? items : [] }));
-  //     return res;
-  //   } catch (err) {
-  //     set((state) => ({ ...state, error: err.message }));
-  //   } finally {
-  //     set((state) => ({ ...state, loading: false }));
-  //   }
-  // },
-  getProductStores: async (slug, quantity = 0, sortType = null, location = null) => {
+  getProductStores: async (slug, quantity = 0, sortType = null, location = null, language = "ru", regions = []) => {
     set((state) => ({ ...state, loading: true, error: null }));
     try {
-      const res = await fetchProductStores(slug, quantity, sortType, location);
+      const res = await fetchProductStores(slug, quantity, sortType, location, language, regions);
+
       const items = res?.data?.items || [];
 
       set((state) => ({ ...state, stores: Array.isArray(items) ? items : [] }));
@@ -105,8 +81,6 @@ const useProductStore = create((set) => ({
       set((state) => ({ ...state, loading: false }));
     }
   }
-
-
 
 
 

@@ -10,19 +10,20 @@ import slideUz1 from "../assets/slideUz_1.png";
 import slideUz2 from "../assets/slideUz_2.png";
 import slideUz3 from "../assets/slideUz_3.png";
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { useLanguage } from "../language/LanguageContext"; // 👈 kontekstni chaqiramiz
+import { useLanguage } from "../language/LanguageContext";
 
 function ImageSlider() {
-  const { language } = useLanguage(); // 👈 kontekstdan tilni olamiz
+  const { language } = useLanguage();
 
   const slides = language === "UZ"
     ? [slideUz1, slideUz2, slideUz3]
     : [slide_1, slide_2, slide_3];
 
+
   return (
     <div className='js-slider'>
       <Swiper
-        key={language} // 👈 til o‘zgarganda Swiper qayta render bo‘ladi
+        key={language}
         spaceBetween={20}
         centeredSlides={true}
         autoplay={{

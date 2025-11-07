@@ -11,7 +11,6 @@ function SearchPage() {
     const [results, setResults] = useState([]);
     const navigate = useNavigate();
 
-    // ✅ Qidiruvni kechiktirib yuborish
     useEffect(() => {
         const delay = setTimeout(() => {
             if (query.trim().length > 0) {
@@ -24,7 +23,7 @@ function SearchPage() {
         return () => clearTimeout(delay);
     }, [query]);
 
-    // ✅ API orqali dori qidirish
+
     const fetchData = async (searchText) => {
         try {
             const res = await fetch("https://dev.osonapteka.uz/api/web/Product/Search", {
@@ -44,18 +43,16 @@ function SearchPage() {
             });
 
             const data = await res.json();
-            console.log("Qidiruv natijasi:", data); // 👈 Natijani ko‘rish uchun
+            console.log("Qidiruv natijasi:", data); 
             setResults(data?.data?.items || []);
         } catch (err) {
             console.error("API xato:", err);
         }
     };
 
-    // ✅ Dori tanlanganda — tafsilot sahifasiga o'tish
     const handleSelect = (item) => {
         if (item?.slug) {
-            // navigate("/search", { state: { selectedDrug: item } });
-            // navigate("/", { state: { selectedDrug: item } });
+
             navigate("/", { replace: true, state: { selectedDrug: item } });
             
             
@@ -80,7 +77,7 @@ function SearchPage() {
                             <NavLink to="/">
                                 <img src={arrowImg} alt="" className="search_imgSecond" />
                             </NavLink>
-                            {/* <div style={{display: 'flex' , alignItems: "center" , justifyContent:'space-between'}}> */}
+                          
                             <input
                                 type="text"
                                 placeholder="Начните вводить в поиск"
@@ -89,7 +86,7 @@ function SearchPage() {
                                 className="main_searchSecond"
                             />
                             <img className="secondSearch_img" src={search_icon} alt="" />
-                            {/* </div> */}
+
                         </div>
                         {results.length > 0 && (
                             <div className="search_resultsSecond">

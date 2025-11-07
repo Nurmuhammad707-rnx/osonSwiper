@@ -5,36 +5,7 @@ import useProductStore from "../Store/productStore";
 import { useLanguage } from "../language/LanguageContext";
 
 
-// 🔹 Popular products
 
-// export const fetchProducts = async (page = 1, pageSize = 20, regionList = [1]) => {
-//   try {
-//     const res = await axios.post(
-//       "https://dev.osonapteka.uz/api/web/Product/Popular",
-//       {
-//         page,
-//         pageSize,
-//         isDeleted: false,
-//         orderBy: "productName",
-//         orderDesc: true,
-//         showOnlyExistOnStore: true,
-//         regionList,
-//       },
-//       {
-//         headers: {
-//           accept: "text/plain",
-//           "Content-Type": "application/json-patch+json",
-//           "CF-Connecting-IP": "213.230.110.212",
-//         },
-//       }
-//     );
-
-//     return res.data.data;
-//   } catch (error) {
-//     console.error("❌ fetchProducts error:", error);
-//     throw error;
-//   }
-// };
 
 export const fetchProducts = async (page = 1, pageSize = 20) => {
   const { selectedRegions } = useProductStore.getState();
@@ -69,31 +40,6 @@ export const fetchProducts = async (page = 1, pageSize = 20) => {
 
 
 
-// export const fetchProductDetail = async (slug) => {
-//   try {
-//     const res = await axios.post(
-//       "http://192.168.111.41:3200/api/web/Product/TileInfo",
-//       {
-//         productSlugList: [slug],
-//         regionList: [1],
-//         fullName: "string",
-
-//       },
-//       {
-//         headers: {
-//           accept: "text/plain",
-//           "Content-Type": "application/json-patch+json",
-//           "CF-Connecting-IP": "213.230.110.212"
-//         },
-//       }
-//     );
-//     console.log('resData', res.data)
-//     return res || res.data;
-//   } catch (error) {
-//     console.error("fetchProductDetail error:", error);
-//     throw error;
-//   }
-// };
 
 
 export const fetchProductDetail = async (slug) => {
@@ -153,36 +99,7 @@ export const fetchInstructions = async (slug, language = "ru") => {
 
 
 
-// export const fetchProductStores = async (slug, quantity = 0, sortType = "cheap" , location = null) => {
-//   const { selectedRegions } = useProductStore.getState();
 
-//   try {
-//     const res = await axios.post(
-//       "https://dev.osonapteka.uz/api/web/Pos/ProductList",
-//       {
-//         productList: [{ slug, quantity }],
-//         regionList: selectedRegions.length ? selectedRegions : [0],
-//         sortType,
-//         latitude: location?.latitude || null,
-//         longitude: location?.longitude || null,
-//       },
-//       {
-//         headers: {
-//           accept: "text/plain",
-//           "Content-Type": "application/json-patch+json",
-//           "CF-Connecting-IP": "213.230.110.212",
-//         },
-//       }
-//     );
-
-
-//     console.log("📦 Stores API response:", res.data);
-//     return res.data;
-//   } catch (error) {
-//     console.error("❌ fetchProductStores error:", error);
-//     throw error;
-//   }
-// };
 
 
 export const fetchProductStores = async (
@@ -194,8 +111,8 @@ export const fetchProductStores = async (
 ) => {
   const { selectedRegions } = useProductStore.getState();
 
-  // sortType ni to‘g‘ri backend formatiga o‘tkazamiz
-  let finalSortBy = "Total"; // default
+
+  let finalSortBy = "Total"; 
 
   if (sortType === "distance") {
     finalSortBy = "Distance";

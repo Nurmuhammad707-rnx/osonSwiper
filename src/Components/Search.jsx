@@ -140,10 +140,6 @@ function Search() {
     localStorage.setItem("selectedDrugs", JSON.stringify(selectedList));
   }, [selectedList]);
 
-  // kere bosa ochir
-  // useEffect(() => {
-  //   localStorage.setItem("selectedDrugs", JSON.stringify(selectedList));
-  // }, [selectedList]);
 
 
 
@@ -185,15 +181,6 @@ function Search() {
   };
 
 
-  // const handleSearch = () => {
-  //   if (selectedList.length === 1) {
-  //     navigate(`/storePrice/${selectedList[0].slug}`, {
-  //       state: { drugs: selectedList },
-  //     });
-  //   } else if (selectedList.length > 1) {
-  //     navigate("/storePrice", { state: { drugs: selectedList } });
-  //   }
-  // };
 
 
 

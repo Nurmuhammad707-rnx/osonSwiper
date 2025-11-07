@@ -2,7 +2,7 @@ import { useState } from "react";
 import angle_bottom from "../assets/search_drugs/angle-bottom.svg";
 import useProductStore from '../Store/productStore'
 import { useLanguage } from "../language/LanguageContext";
-
+// storePriceda faqat buhoro ishlavotti 
 // 5 6 
 function DrugsSearch() {
     const regionMap = {
@@ -70,7 +70,7 @@ function DrugsSearch() {
                                 ? "По всему Узбекистану"
                                 : "Butun O‘zbekiston bo‘yicha"
                             : selected.join(", ")}
-                    </span> 
+                    </span>
                     <img src={angle_bottom} alt="" className="angle_bottom_img" />
                 </div>
             </button>

@@ -8,7 +8,7 @@ import Spinner from "./Components/Spinner";
 import useProductStore from "./Store/productStore";
 import SearchPage from "./Pages/SearchPage";
 import { LanguageProvider } from "./language/LanguageContext.jsx";
-// import { CarouselProvider } from "./language/CarouselContext.jsx";
+
 
 
 
@@ -17,7 +17,7 @@ function App() {
 
     return (
         <LanguageProvider>
-            {/* <CarouselProvider> */}
+
                 <div className="container">
                     <div className="pagew_wrapper">
                         <Routes>
@@ -32,7 +32,7 @@ function App() {
                         {loading && <Spinner />}
                     </div>
                 </div>
-            {/* </CarouselProvider> */}
+
         </LanguageProvider>
     );
 }
