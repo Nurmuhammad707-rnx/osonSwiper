@@ -31,6 +31,7 @@ import drug_check from '../assets/drug_check.svg'
 import distance from "../assets/distance.svg"
 
 
+
 function StorePrice() {
   const { slug } = useParams();
   const { stores, setStores, getProductStores, loading, selectedRegions } = useProductStore();
@@ -56,7 +57,14 @@ function StorePrice() {
   const selectedDrugs = location.state?.drugs || JSON.parse(localStorage.getItem("selectedDrugs")) || [];
 
 
-  // const selectedDrugs = location.state?.selectedDrugs || [];
+  const [filterOpen, setFilterOpen] = useState(false)
+  const handleFilterOpen = () => {
+    setFilterOpen(true)
+  }
+  const handleFilterClose = () => {
+    setFilterOpen(false)
+  }
+
 
   const [activeButton, setActiveButton] = useState('cheap');
 
@@ -380,15 +388,56 @@ function StorePrice() {
         </h1>
 
         <div className="inButton">
-          <button className="filter_button">
+          <button onClick={handleFilterOpen} className="filter_button">
             <div className="one">1</div>
             <img src={filter} alt="" className="buttonIn_img" />
-            <p className="buttonIn_name"> 
+            <p className="buttonIn_name">
               {language === "RU" ? "Фильтр" : "Filtr"}
             </p>
 
           </button>
         </div>
+        {filterOpen && (
+          <div className="filter-modal">
+            <div className="filter-content">
+
+              <div  style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+
+                <h3>{language === "RU" ? "Фильтр" : "Filtr"}</h3>
+                <button className="filterClose_btn" onClick={handleFilterClose}>× </button>
+
+              </div>
+
+              <div className="checkbox_wrapper">
+                <div className="the_checkbox">
+                  <label > Ochiq dorixonalar</label>
+                  <label className="switch">
+                    <input type="checkbox" />
+                    <span className="slider"></span>
+                  </label>
+                </div>
+
+                <div className="the_checkbox">
+                  <label > Dorixona Keshbeki</label>
+                  <label className="switch">
+                    <input type="checkbox" />
+                    <span className="slider"></span>
+                  </label>
+                </div>
+
+                <div className="the_checkbox">
+                  <label >Yetkazib berish xizmati mavjud dorixonalar</label>
+                  <label className="switch">
+                    <input type="checkbox" />
+                    <span className="slider"></span>
+                  </label>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        )}
       </div>
 
 
@@ -497,15 +546,15 @@ function StorePrice() {
                 <div className="drugsInfo_wrapper" style={{ display: 'flex' }}>
                   <button className="drugsInfo_share">
                     <img src={drug_tel} alt="" style={{ width: '16px', height: '16px', marginRight: '10px' }} />
-                    <p className="p">{language === "uz" ? "Qo‘ng‘iroq qilish" : "Позвонить"}</p>
+                    <p className="p">{language === "UZ" ? "Qo‘ng‘iroq qilish" : "Позвонить"}</p>
                   </button>
                   <button className="drugsInfo_share">
                     <img style={{ width: '16px', height: '16px', marginRight: '10px' }} src={drug_map} alt="" />
-                    <p className="p">{language === "uz" ? "Xaritada" : "На карте"}</p>
+                    <p className="p">{language === "UZ" ? "Xaritada" : "На карте"}</p>
                   </button>
                   <button className="drugsInfo_share" >
                     <img src={drug_share} alt="" style={{ width: '16px', height: '16px', marginRight: '10px' }} />
-                    <p className="p">{language === "uz" ? "Ulashish" : "Поделиться"}</p>
+                    <p className="p">{language === "UZ" ? "Ulashish" : "Поделиться"}</p>
                   </button>
                 </div>
 
