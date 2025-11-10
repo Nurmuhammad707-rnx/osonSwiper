@@ -11,7 +11,8 @@ import useProductStore from "../Store/productStore";
 
 function Products() {
   const { products, getProducts, loading, error, selectedRegions } = useProductStore();
-  const { language, setLanguag } = useLanguage()
+  const { language } = useLanguage();
+
 
   useEffect(() => {
     getProducts();
@@ -27,11 +28,12 @@ function Products() {
           {language === "RU" ? "Популярные товары" : "Ommabop mahsulotlar"}
 
 
+
         </h1>
         <button className="all">
           <NavLink className="all_button" to="/allProduct">
             {language === "RU" ? 'Все' : "Hammasi"}
-            
+
           </NavLink>
           <img src={next_icon} alt="" className="next_img" />
         </button>

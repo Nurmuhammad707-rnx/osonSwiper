@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import ProductInstructions from "./ProductInstructions";
 import useProductStore from "../Store/productStore";
+import { useLanguage } from "../language/LanguageContext";
 
 
 import button_icon from "../assets/menuIcon.svg";
@@ -110,7 +111,9 @@ function ProductDetail() {
       <div className="page_reminder">
 
         <NavLink to={'/'} className='nav-link'>
-          <h4 className="drug-information">Главная</h4>
+          <h4 className="drug-information">
+            {language === "RU" ? "Главная" : "Asosiy"}
+          </h4>
         </NavLink>
 
         <img src={angle_right} alt="" />
@@ -123,7 +126,9 @@ function ProductDetail() {
 
       </div>
 
-      <h2 className="instruction_main-titlee">Oson Apteka - Справочная аптек</h2>
+      <h2 className="instruction_main-titlee">Oson Apteka -
+        {language === "RU" ? " Справочная аптек" : "Dorixonalar ma'lumotnomasi"}
+      </h2>
       <div className="product-detail">
         <div className="drugs_flex">
           <img className="drugFlex_img" src={productDetail.imageURI} alt={productDetail.productFullName || "Dori"} />
@@ -132,15 +137,19 @@ function ProductDetail() {
             <p className="drugsDetail-price">от {productDetail.minPrice?.toLocaleString()} so‘m</p>
 
             <NavLink to={`/storePrice/${slug}`}>
-              <button className="drugsButton-about">Цена в аптеках</button>
+              <button className="drugsButton-about">
+                {language === "RU" ? "Цена в аптеках" : "Dorixonalar ma'lumotnomasi"}
+              </button>
             </NavLink>
 
 
           </div>
         </div>
-        <h3 className="drugsAbout__info">Характеристики</h3>
-        <p className="drugsBrand-about"> Бренд: <span className="character">{productDetail.brandName}</span></p>
-        <p className="drugsBrand-about"> Производитель: <span className="character">{productDetail.manufacturerName}</span></p>
+        <h3 className="drugsAbout__info">
+          {language === "RU" ? "Характеристики" : "Xususiyatlari"}
+        </h3>
+        <p className="drugsBrand-about">{language === "RU" ? "Бренд:" : "Brend"}  <span className="character">{productDetail.brandName}</span></p>
+        <p className="drugsBrand-about">{language === "RU" ? "Производитель:" : "Ishlab chiqaruvchi"}  <span className="character">{productDetail.manufacturerName}</span></p>
         <p className="drugsBrand-about"> АТХ: <span className="character">{productDetail.anatomicalTherapeuticChemicalCode} - {productDetail.anatomicalTherapeuticChemicalName}</span></p>
       </div>
 
