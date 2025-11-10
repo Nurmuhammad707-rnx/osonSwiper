@@ -1,52 +1,112 @@
 
+import { useLanguage } from "../language/LanguageContext";
 
+function LastBottom() {
+    const { language, setLanguage } = useLanguage();
 
-function LastBottom(){
-    
+    const toggleLanguage = () => {
+        setLanguage(prev => (prev === "RU" ? "UZ" : "RU"));
+        setShowAlt(false);
+    };
     const osonText = ' Oson Apteka '
     const lastOson = ' Oson Apteka '
-   
-    
-    return(
+
+
+    return (
         <footer>
-                <h1 className="LastBottom_title">Справочник 
-                <span className="big_blue">{osonText}</span>
-                имеет дополнительные функции
-                </h1>
-                <div className="FooterLast">
-                     <div className="lastBottom_lists">
+            <h1 className="LastBottom_title">
+                {language === "RU" ? (
+                    <>
+                        Справочник
+                        <span className="big_blue">{osonText}</span>
+                        имеет дополнительные функции
+                    </>
+                ) : (
+                    <>
+                        <span className="big_blue">{osonText}</span> dori izlash tizimi qo'shimcha imkoniyatlarga ham ega:
+                    </>
+                )}
+
+            </h1>
+            <div className="FooterLast">
+                <div className="lastBottom_lists">
                     <div className="list_about">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="_mt20" data-v-45c0c5d5=""><rect width="48" height="48" rx="24" fill="#F4F5F7"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M20.4277 15C20.8477 15 21.1887 15.3344 21.1887 15.7472C21.1887 16.1591 20.8487 16.4935 20.4277 16.4935L18.7987 16.4944C17.4467 16.4964 16.3467 17.576 16.3467 18.9028V20.762C16.3467 21.1739 16.0047 21.5092 15.5847 21.5092C15.1647 21.5092 14.8237 21.1739 14.8237 20.762V18.9028C14.8237 16.7533 16.6067 15.0029 18.7977 15.001L20.4267 15H20.4277ZM27.6006 15.0003H29.1936C31.3906 15.0003 33.1766 16.7516 33.1766 18.906V20.7623C33.1766 21.1742 32.8366 21.5095 32.4156 21.5095C31.9956 21.5095 31.6546 21.1742 31.6546 20.7623V18.906C31.6546 17.5754 30.5506 16.4928 29.1936 16.4928H27.6006C27.1806 16.4928 26.8396 16.1594 26.8396 15.7475C26.8396 15.3347 27.1806 15.0003 27.6006 15.0003ZM26.7625 18.7427H21.2385C19.9745 18.7554 18.9585 19.7684 18.9695 21.0088V22.2542C18.9725 22.3993 19.0915 22.518 19.2395 22.5229H28.7595C28.9085 22.5189 29.0275 22.4003 29.0325 22.2542V21.0088C29.0335 20.4097 28.7975 19.8341 28.3715 19.4055C27.9485 18.9809 27.3675 18.7427 26.7625 18.7427ZM13.762 24.0412H34.239C34.659 24.0412 35 24.3756 35 24.7885C35 25.2003 34.659 25.5337 34.239 25.5337H33.177V29.0933C33.177 31.2486 31.39 33 29.194 33H27.601C27.18 33 26.839 32.6656 26.839 32.2528C26.839 31.8409 27.18 31.5065 27.601 31.5065H29.194C30.551 31.5065 31.655 30.4249 31.655 29.0933V25.5337H29.032V26.5251C29.042 27.7656 28.027 28.7795 26.762 28.7913H21.238C19.974 28.7795 18.959 27.7656 18.969 26.5251V25.5337H16.346V29.0972C16.346 30.424 17.447 31.5036 18.8 31.5056L20.428 31.5065C20.848 31.5065 21.189 31.8409 21.189 32.2528C21.188 32.6656 20.848 33 20.427 33L18.798 32.999C16.607 32.9971 14.823 31.2467 14.823 29.0972V25.5337H13.762C13.342 25.5337 13 25.2003 13 24.7885C13 24.3756 13.342 24.0412 13.762 24.0412Z" fill="url(#paint0_linear)"></path><defs><linearGradient id="paint0_linear" x1="35.0031" y1="20.6033" x2="12.9981" y2="20.5467" gradientUnits="userSpaceOnUse"><stop stop-color="#3F74D1"></stop><stop offset="1" stop-color="#5B96E7"></stop></linearGradient></defs></svg>
-                        <h4 className="list_about-text">Поиск по штрих-коду. Больше
-                             не надо вбивать длинные названия лекарств для поиска. 
-                             Достаточно отсканировать смартфоном штрих-код и система
-                              автоматически выдаст нужную информацию.</h4>
+                        <h4 className="list_about-text">
+                            {language === "RU" ? (
+                                <>
+                                    Поиск по штрих-коду. Больше
+                                    не надо вбивать длинные названия лекарств для поиска.
+                                    Достаточно отсканировать смартфоном штрих-код и система
+                                    автоматически выдаст нужную информацию
+                                </>
+                            ) : (
+                                <>
+                                    Shtrix-kod bo'yicha izlash. Preparatning uzun va murakkab nomini kiritishga hojat yo'q. Smartfon orqali qadoqdagi shtrix-kodni skanerlaganda tizim avtomatik ravishda kerakli ma’lumotni taqdim etadi.
+                                </>
+                            )}
+                            .
+                        </h4>
                     </div>
                 </div>
                 <div className="lastBottom_lists">
                     <div className="list_about">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="_mt20" data-v-45c0c5d5=""><rect width="48" height="48" rx="24" fill="#F4F5F7"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M20.9258 28.39H26.3119C26.7178 28.39 27.0545 28.05 27.0545 27.64C27.0545 27.23 26.7178 26.9 26.3119 26.9H20.9258C20.5198 26.9 20.1832 27.23 20.1832 27.64C20.1832 28.05 20.5198 28.39 20.9258 28.39ZM24.2723 21.9H20.9258C20.5198 21.9 20.1832 22.24 20.1832 22.65C20.1832 23.06 20.5198 23.39 20.9258 23.39H24.2723C24.6782 23.39 25.0149 23.06 25.0149 22.65C25.0149 22.24 24.6782 21.9 24.2723 21.9ZM31.3381 21.0256C31.5708 21.0229 31.8242 21.02 32.0545 21.02C32.302 21.02 32.5 21.22 32.5 21.47V29.51C32.5 31.99 30.5099 34 28.0545 34H20.1733C17.599 34 15.5 31.89 15.5 29.29V18.51C15.5 16.03 17.5 14 19.9653 14H25.2525C25.5099 14 25.7079 14.21 25.7079 14.46V17.68C25.7079 19.51 27.203 21.01 29.0149 21.02C29.4381 21.02 29.8112 21.0232 30.1377 21.0259C30.3917 21.0281 30.6175 21.03 30.8168 21.03C30.9578 21.03 31.1405 21.0279 31.3381 21.0256ZM31.6111 19.566C30.7972 19.569 29.8378 19.566 29.1477 19.559C28.0527 19.559 27.1507 18.648 27.1507 17.542V14.906C27.1507 14.475 27.6685 14.261 27.9646 14.572C28.5006 15.135 29.2374 15.9089 29.9706 16.6792C30.7014 17.4469 31.4288 18.211 31.9507 18.759C32.2398 19.062 32.0279 19.565 31.6111 19.566Z" fill="url(#paint0_linear)"></path><defs><linearGradient id="paint0_linear" x1="32.5024" y1="20.2259" x2="15.4984" y2="20.1955" gradientUnits="userSpaceOnUse"><stop stop-color="#3F74D1"></stop><stop offset="1" stop-color="#5B96E7"></stop></linearGradient></defs></svg>
-                        <h4 className="list_about-text">Одновременный поиск нескольких 
-                            позиций. Если в назначении указано два и более препарата, 
-                            их можно находить одновременно.</h4>
+                        <h4 className="list_about-text">
+                            {language === "RU" ? (
+                                <>
+                                    Одновременный поиск нескольких
+                                    позиций. Если в назначении указано два и более препарата,
+                                    их можно находить одновременно.
+                                </>
+                            ) : (
+                                <>
+                                    Birdaniga bir nechta preparatni izlash. Ikki va undan ortiq preparatni sotib olish kerak bo'lganda, ularni birvarakayiga izlash mumkin.
+                                </>
+                            )}
+                        </h4>
                     </div>
                 </div>
                 <div className="lastBottom_lists">
                     <div className="list_about">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="_mt20" data-v-45c0c5d5=""><rect width="48" height="48" rx="24" fill="#F4F5F7"></rect><path fill-rule="evenodd" clip-rule="evenodd" d="M20.9258 28.39H26.3119C26.7178 28.39 27.0545 28.05 27.0545 27.64C27.0545 27.23 26.7178 26.9 26.3119 26.9H20.9258C20.5198 26.9 20.1832 27.23 20.1832 27.64C20.1832 28.05 20.5198 28.39 20.9258 28.39ZM24.2723 21.9H20.9258C20.5198 21.9 20.1832 22.24 20.1832 22.65C20.1832 23.06 20.5198 23.39 20.9258 23.39H24.2723C24.6782 23.39 25.0149 23.06 25.0149 22.65C25.0149 22.24 24.6782 21.9 24.2723 21.9ZM31.3381 21.0256C31.5708 21.0229 31.8242 21.02 32.0545 21.02C32.302 21.02 32.5 21.22 32.5 21.47V29.51C32.5 31.99 30.5099 34 28.0545 34H20.1733C17.599 34 15.5 31.89 15.5 29.29V18.51C15.5 16.03 17.5 14 19.9653 14H25.2525C25.5099 14 25.7079 14.21 25.7079 14.46V17.68C25.7079 19.51 27.203 21.01 29.0149 21.02C29.4381 21.02 29.8112 21.0232 30.1377 21.0259C30.3917 21.0281 30.6175 21.03 30.8168 21.03C30.9578 21.03 31.1405 21.0279 31.3381 21.0256ZM31.6111 19.566C30.7972 19.569 29.8378 19.566 29.1477 19.559C28.0527 19.559 27.1507 18.648 27.1507 17.542V14.906C27.1507 14.475 27.6685 14.261 27.9646 14.572C28.5006 15.135 29.2374 15.9089 29.9706 16.6792C30.7014 17.4469 31.4288 18.211 31.9507 18.759C32.2398 19.062 32.0279 19.565 31.6111 19.566Z" fill="url(#paint0_linear)"></path><defs><linearGradient id="paint0_linear" x1="32.5024" y1="20.2259" x2="15.4984" y2="20.1955" gradientUnits="userSpaceOnUse"><stop stop-color="#3F74D1"></stop><stop offset="1" stop-color="#5B96E7"></stop></linearGradient></defs></svg>
-                        <h4 className="list_about-text">Поиск препаратов по действующему
-                             веществу. Часто врачи выписывают лекарство, которых может не 
-                             оказаться в свободной продаже или их стоимость сильно высокая.
-                              В справочнике можно искать аналоги с одинаковым составом.</h4>
+                        <h4 className="list_about-text">
+                            <h4 className="list_about-text">
+                                {language === "RU" ? (
+                                    <>
+                                        Поиск препаратов по действующему
+                                        веществу. Часто врачи выписывают лекарство, которых может не
+                                        оказаться в свободной продаже или их стоимость сильно высокая.
+                                        В справочнике можно искать аналоги с одинаковым составом.
+                                    </>
+                                ) : (
+                                    <>
+                                        Asosiy ta’sir etuvchi moddasi bo'yicha izlash. Vrach tayinlagan preparatlar erkin savdoda bo'lmasligi yoki narxi juda qimmat bo'lishi hollari ham uchrab turadi. Dori izlash tizimi orqali dorilarning asosiy ta’sir etuvchi vositasi bir xil bo'lgan muqobillarini topish mumkin.
+                                    </>
+                                )}
+
+                            </h4>
+                        </h4>
+
                     </div>
                 </div>
 
-                </div>
-               <h4 className="last_word">
-                Справочник лекарств полностью бесплатный для пользователей. Для бизнеса мы
-                 предлагаем выгодные условия сотрудничества. Первый месяц пользования 
-                 <span className="lastBlue_word">{lastOson}</span>— абсолютно бесплатно.
-               </h4>
+            </div>
+            <h4 className="last_word">
+                {language === "RU" ? (
+                    <>
+                        Справочник лекарств полностью бесплатный для пользователей. Для бизнеса мы
+                        предлагаем выгодные условия сотрудничества. Первый месяц пользования
+                        <span className="lastBlue_word">{lastOson}</span>— абсолютно бесплатно.
+                    </>
+                ) : (
+                    <>
+                        Dori izlash tizimi foydalanuvchilar uchun mutlaqo bepul. Biznes uchun o'zaro qulay shartlarda hamkorlik taklif qilamiz. <span className="lastBlue_word">{lastOson}</span> tizimiga ulanishda birinchi oy mutlaqo bepul.
+                    </>
+                )}
+
+
+            </h4>
         </footer>
     );
 }

@@ -54,26 +54,28 @@ function Header() {
                 </div>
                 <div className="second_header">
                     <button className="for_button">
-                        <a href="https://osonapteka.uz/business/" className="for">Для аптек</a>
+                        <a href="https://osonapteka.uz/business/" className="for">
+                            {language === "RU" ? "Для аптек" : "Dorixonalar uchun"}
+                        </a>
                     </button>
                     <div className="language_switcher">
                         <button className="ru_icon" onClick={() => setShowAlt(!showAlt)}>
                             <img
-                                src={language === "ru" ? ru_icon : uz_icon}
+                                src={language === "RU" ? ru_icon : uz_icon}
                                 alt=""
                                 className="secondHeader_icon"
                             />
-                            <h3 className="language_icon">{language.toUpperCase()}</h3> 
+                            <h3 className="language_icon">{language.toUpperCase()}</h3>
                         </button>
 
                         {showAlt && (
                             <button className="ru_icon" onClick={toggleLanguage}>
                                 <img
-                                    src={language === "ru" ? uz_icon : ru_icon}
+                                    src={language === "RU" ? uz_icon : ru_icon}
                                     alt=""
                                     className="secondHeader_icon"
                                 />
-                                <h3 className="language_icon">{language === "ru" ? "UZ" : "RU"}</h3>
+                                <h3 className="language_icon">{language === "RU" ? "UZ" : "RU"}</h3>
                             </button>
                         )}
                     </div>
