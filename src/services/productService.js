@@ -112,7 +112,7 @@ export const fetchProductStores = async (
   const { selectedRegions } = useProductStore.getState();
 
 
-  let finalSortBy = "Total"; 
+  let finalSortBy = "Total";
 
   if (sortType === "distance") {
     finalSortBy = "Distance";
@@ -141,7 +141,7 @@ export const fetchProductStores = async (
         headers: {
           accept: "text/plain",
           "Content-Type": "application/json-patch+json",
-          "CF-Connecting-IP": "213.230.110.212",
+          "CF-Connecting-IP": "213.230.110.212"
         },
       }
     );

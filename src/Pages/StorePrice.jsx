@@ -349,7 +349,7 @@ function StorePrice() {
           {showAlt && (
             <button className="ru_icon" onClick={toggleLanguage}>
               <img
-                src={language === "ru" ? uz_icon : ru_icon}
+                src={language === "RU" ? uz_icon : ru_icon}
                 alt=""
                 className="secondHeader_icon"
               />
@@ -364,7 +364,9 @@ function StorePrice() {
 
       <div className="page_reminder">
         <NavLink to={'/'} className='nav-link'>
-          <h4 className="drug-information">Главная</h4>
+          <h4 className="drug-information">
+            {language === "RU" ? 'Главная' : "Asosiy"}
+          </h4>
         </NavLink>
         <img src={angle_right} alt="" />
         <h4>
@@ -373,7 +375,8 @@ function StorePrice() {
         <img src={angle_right} alt="" />
         <h4>
           <strong className="gray">
-            Цена в аптеках
+            {language === "RU" ? "Цена в аптеках" : "Dorixonalardagi narx"}
+
           </strong>
         </h4>
       </div>
@@ -401,7 +404,7 @@ function StorePrice() {
           <div className="filter-modal">
             <div className="filter-content">
 
-              <div  style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 
                 <h3>{language === "RU" ? "Фильтр" : "Filtr"}</h3>
                 <button className="filterClose_btn" onClick={handleFilterClose}>× </button>
